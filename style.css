@@ -103,16 +103,15 @@ small {
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
     background: transparent;
     color: #6e6e6e;
+    cursor: pointer;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
     background: transparent;
     color: #6e6e6e;
+    cursor: pointer;
 }
 
-.nav-pills>li>a:hover{
-    content: "";
-}
 .nav-pills>li {
     border-top:2px solid #fff;
 }
@@ -123,6 +122,7 @@ small {
     -webkit-transform: scale(1);
     transition: 0.5s;
     -webkit-transform-origin: 50% 100%;
+    cursor: pointer;
 }
 
 .nav-pills>li::before {
@@ -152,4 +152,29 @@ small {
 
 .tabs {
     padding-bottom: 20px;
+}
+
+.highlight-p {
+    font-size: 1.2em;
+    color: #008484;
+}
+
+.highlight-p span {
+    font-size: 2em;
+    font-weight: 700;
+    clear: right;
+}
+
+section.carousel{
+    background-color: #cd5806;
+}
+
+.carousel-text{
+    color: #fff;
+    padding: 3em 7em;
+}
+
+.carousel-img {
+    background: url("https://placeholdit.imgix.net/~text?txtsize=63&txt=667%C3%97480&w=667&h=480");
+    height: 480px;
 }
