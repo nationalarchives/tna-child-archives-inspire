@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
 Theme Name:     TNA-BASE - Archives Inspired child theme
 Theme URI:      http://www.nationalarchives.gov.uk/
 Author:         The National Archives
@@ -13,3 +12,144 @@ Text Domain:    tna-base
 */
 
 /* Add custom CSS here to overwrite parent theme CSS */
+main {
+    background-color: #fff;
+}
+
+.super-heading {
+    color: #fff;
+    background-color: #008484;
+    font-size: 3.3em;
+    box-sizing: border-box;
+    display: table;
+    padding: 5px;
+}
+h1.super-heading{
+    margin-bottom: 0;
+}
+
+h2.super-heading {
+    margin-bottom: 3em;
+    margin-top: 0;
+}
+
+a:active, a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tna-breadcrumb {
+    margin-top: 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    margin-top: 30px;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.breadcrumbs {
+    display: inline-block;
+    color: #FCE45C;
+    padding: 3px 7px;
+    background-color: #000;
+    background-color: rgba(0,0,0,.5);
+}
+
+.banner {
+    background-size: cover;
+}
+
+.brochure {
+    width: 20%;
+    height: auto;
+}
+
+small {
+    color: #2A5DB0;
+}
+
+.nav>li>a {
+    padding:10px 0;
+}
+
+.nav-pills .a {
+    color: #6e6e6e;
+}
+
+.nav-pills>li>a {
+    color: #6e6e6e;
+    background-color: transparent;
+}
+
+.tabs {
+    margin-top: 20px;
+}
+
+.nav-pills {
+    width: 100%;
+    border-bottom: 5px solid #d6d6d6
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover {
+    background: transparent;
+    color: #6e6e6e;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
+    background: transparent;
+    color: #6e6e6e;
+}
+
+.nav-pills>li>a:hover{
+    content: "";
+}
+.nav-pills>li {
+    border-top:2px solid #fff;
+}
+.nav-pills>li:hover {
+    border-top:2px solid #d6d6d6;
+    background: transparent;
+    border-radius: 0;
+    -webkit-transform: scale(1);
+    transition: 0.5s;
+    -webkit-transform-origin: 50% 100%;
+}
+
+.nav-pills>li::before {
+    visibility: hidden;
+    transform: scaleX(1);
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+}
+
+.tab_img{
+    background: url("https://placeholdit.imgix.net/~text?txtsize=49&txt=520%C3%97369&w=520&h=369");
+    background-size: cover;
+    height: 369px;
+    width: 520px;
+    float: right;
+}
+
+.tab-pane {
+    padding-top:40px;
+}
+
+.tabs {
+    padding-bottom: 20px;
+}
