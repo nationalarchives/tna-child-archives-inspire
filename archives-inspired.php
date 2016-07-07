@@ -184,16 +184,18 @@ get_header(); ?>
                                 </div>
                             </div>
                             <!-- Left and right controls -->
-                            <div class="slider-controller">
+
                                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                                     <span><</span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="next">
+
+
+                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                                     <span>></span>
                                     <span class="sr-only">Next</span>
                                 </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
