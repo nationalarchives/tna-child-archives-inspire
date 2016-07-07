@@ -26,7 +26,13 @@ get_header(); ?>
         <div class="container">
             <section> <!--Main section-->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4 col-md-push-8">
+                        <div class="video-container">
+                            <iframe width="380" height="320" src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
+                                    frameborder="0" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-pull-4">
                         <h2>Over the next four years we will think and organise ourselves differently, to meet the needs
                             of each of our major audiences and to face our biggest challenge – digital.</h2>
                         <p>We will change the way you think about archives.</p>
@@ -35,12 +41,6 @@ get_header(); ?>
                                 alt="Download Archives Inspire 2015-19" class="brochure"><br>
                             <small>Read full plan (PDF)</small>
                         </a>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="video-container">
-                            <iframe width="380" height="320" src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
-                                    frameborder="0" allowfullscreen=""></iframe>
-                        </div>
                     </div>
                 </div>
             </section><!--End Main section-->
