@@ -9,15 +9,18 @@ function tnatheme_globals() {
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
         $pre_path = '';
         $pre_crumbs = array(
-            'Site home title' => '/'
+            'Archives inspire' => '/'
         );
     // If external TNA
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'Site home title' => '/about/site-home-title/'
+            'Our role' => '/about/our-role/',
+            'Plans, policies, performance and projects' => '/about/our-role/plans-policies-performance-and-projects/',
+            'Our plans' => '/about/our-role/plans-policies-performance-and-projects/our-plans/',
+            'Site home title' => '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/'
         );
-        $pre_path = '/about/site-home-title';
+        $pre_path = '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/';
     }
 }
 // If web development machine
