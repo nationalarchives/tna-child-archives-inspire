@@ -127,24 +127,15 @@ get_header(); ?>
                 </div>
             </div>
         </section><!--End tabs section-->
-        <section class="carousel"><!--Carousel section-->
-            <div class="row">
-                <div class="col-md-6 carousel-text">
-                    <p>
-                        Archives are bursting with valuable information and insights. But finding the right information can sometimes take many years of painstaking work. How can our research help researchers everywhere?
-                    </p>
-                    <p>
-                        Traces through time is our ground-breaking international collaborative research project inspired by archives.
-                    </p>
-                    <p>
-                        This is just the beginning of a revolution in research technology.
-                    </p>
-                </div>
-                <div class="col-md-6 carousel-img">
-                    <span>Some text</span>
+        <section class="a-i-carousel">
+            <div class="container">
+                <div class="row">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        
+                    </div>
                 </div>
             </div>
-        </section><!--End Carousel section-->
+        </section>
     </main>
 </div>
 <?php get_footer(); ?>
