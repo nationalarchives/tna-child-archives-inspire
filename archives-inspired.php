@@ -15,8 +15,8 @@ get_header(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="super-heading"><?php the_title(); ?><?php the_title(); ?></h1>
-                        <h2 class="super-heading"><?php the_title(); ?></h2>
+                        <h1 class="super-heading"><?php the_title(); ?></h1>
+                        <h2 class="super-heading">2015 - 19</h2>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ get_header(); ?>
                 </div>
             </section><!--End Main section-->
         </div><!--End container-->
-        <section class="tabs"><!--Tabs sections-->
+        <section class="a-i-tabs"><!--Tabs sections-->
             <ul class="nav nav-pills nav-justified">
                 <li class="active"><a href="#1" data-toggle="tab">Goverment</a></li>
                 <li><a href="#2" data-toggle="tab">Public</a></li>
@@ -128,10 +128,73 @@ get_header(); ?>
             </div>
         </section><!--End tabs section-->
         <section class="a-i-carousel">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="col-md-6">
+                                    <div class="carousel-text">
+                                        <p>
+                                            Archives are bursting with valuable information and insights. But finding the right information can sometimes take many years of painstaking work. How can our research help researchers everywhere?
+                                        </p>
+                                        <p>
+                                            Traces through time is our ground-breaking international collaborative research project inspired by archives.
+                                        </p>
+                                        <p>
+                                            This is just the beginning of a revolution in research technology.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="http://placehold.it/640x440?text=Slide+1" alt="Chania" class="img-responsive">
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-md-6">
+                                    <div class="carousel-text">
+                                        <p>
+                                            Every family has a history. Experiences of loss, courage, adventure and separation can resonate through generations and through communities. Making a connection with our past can help us to understand our own lives better.
+                                        </p>
+                                        <p>
+                                            Through interactive technology we are bringing these real stories from the trenches to the classroom. We are also working with Caribbean, African and Asian communities in the UK to explore their First World War history.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="http://placehold.it/640x440?text=Slide+2" alt="Chania" class="img-responsive">
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-md-6">
+                                    <div class="carousel">
+                                        <div class="carousel-text">
+                                            <p>
+                                                The laws that govern our society and guarantee our rights are constantly evolving. A change to one law will have implications for others. How can we follow these changes and understand their impact on our lives?
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="http://placehold.it/640x440?text=Slide+3" alt="Chania" class="img-responsive">
+                                </div>
+                            </div>
+                            <!-- Left and right controls -->
+                            <div class="slider-controller">
+                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <span><</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <span>></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
