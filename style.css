@@ -477,4 +477,8 @@ a.right.carousel-control {
     .nav-pills>li, .nav-pills>li.active, .nav-pills>li.active:hover{
         width: 100%;
     }
+    .carousel-text {
+        margin-left: 3em;
+        margin-right: 3em;
+    }
 }
