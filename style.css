@@ -61,7 +61,7 @@ a:active, a:link, a:visited {
 
 .breadcrumbs {
     display: inline-block;
-    color: #FCE45C;
+    color: #FFF;
     padding: 3px 7px;
     background-color: #000;
     background-color: rgba(0,0,0,.5);
@@ -69,6 +69,7 @@ a:active, a:link, a:visited {
 
 .banner {
     background-size: cover;
+    background-position: center;
 }
 
 .brochure {
@@ -76,8 +77,12 @@ a:active, a:link, a:visited {
     width: 25%;
 }
 
-small {
+.brochure>small {
     color: #2A5DB0;
+}
+
+a.brochure:focus, a.carousel-control:focus{
+    outline: #ebab00 solid 3px;
 }
 
 
@@ -177,7 +182,7 @@ small {
 
 .highlight-p span {
     font-size: 2em;
-    font-weight: 700;
+    font-weight: 400;
     clear: right;
 }
 
@@ -428,20 +433,48 @@ a.right.carousel-control {
     .nav-pills {
         width: 100%;
     }
-    .nav-pills>li {
+    .nav-pills>li.active, .nav-pills>li.active:hover {
         background-color: #008484;
-        margin-bottom: 0;
+        width: 48.5%;
+        display: inline-block;
+        margin: 0 5px 5px 0;
     }
-    .nav-pills>li>a, .nav-pills>li.active>a {
+
+    .nav-pills>li.active>a, .nav-pills>li.active>a:hover{
         color: #fff;
+    }
+    .nav-pills>li{
+        width: 48.5%;
+        display: inline-block;
+        margin: 0 5px 5px 0;
+        background-color: #d6d6d6;
+    }
+
+    .nav-pills>li>a {
+        color: black;
     }
     .nav-pills>li.active>a::after {
         display: none;
     }
-    .nav-pills>li:hover {
+    .nav-pills>li>a:hover {
+        color: #6d6d6d;
         border: none;
     }
+    .nav-pills>li:hover{
+        background-color: #d6d6d6;
+        border-top: none;
+    }
+
     .nav-pills>li+li {
         margin-left: 0;
+    }
+    .nav-pills>li {
+        border-top:none;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-pills>li, .nav-pills>li.active, .nav-pills>li.active:hover{
+        width: 100%;
     }
 }
