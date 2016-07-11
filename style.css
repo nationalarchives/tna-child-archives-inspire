@@ -72,8 +72,8 @@ a:active, a:link, a:visited {
 }
 
 .brochure {
-    width: 20%;
-    height: auto;
+    margin-top: 20px;
+    width: 25%;
 }
 
 small {
@@ -82,6 +82,11 @@ small {
 
 
 /* Tabs Section */
+.a-i-tabs-section {
+    border-bottom: 5px solid #d6d6d6;
+    margin-top: 20px;
+}
+
 .nav>li>a {
     padding:10px 0;
 }
@@ -91,18 +96,13 @@ small {
 }
 
 .nav-pills>li>a {
-    color: #6e6e6e;
+    color: #000;
     background-color: transparent;
-}
-
-.nav-pills {
-    width: 100%;
-    border-bottom: 5px solid #d6d6d6;
+    font-size: 18px;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
     background: transparent;
-    color: #6e6e6e;
     cursor: pointer;
 }
 
@@ -122,19 +122,26 @@ small {
     background: transparent;
     color: #6e6e6e;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .nav-pills>li {
-    border-top:2px solid #fff;
+    border-top: 2px solid #fff;
+    text-align: center;
+    margin-right: 65px;
+    margin-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .nav-pills>li:hover {
     border-top:2px solid #d6d6d6;
     background: transparent;
     border-radius: 0;
     -webkit-transform: scale(1);
-    transition: 0.5s;
+    /*transition: 0.5s;*/
     -webkit-transform-origin: 50% 100%;
     cursor: pointer;
+    transition: #6363CE .2s ease-in;
 }
 
 .nav-pills>li::before {
@@ -151,20 +158,16 @@ small {
 }
 
 .tab_img{
-    background: url("https://placeholdit.imgix.net/~text?txtsize=49&txt=520%C3%97369&w=520&h=369");
-    background-size: cover;
-    height: 369px;
-    width: 520px;
-    float: right;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
-
 .tab-pane {
     padding-top:40px;
 }
 
 .a-i-tabs {
     padding-bottom: 20px;
-    margin-top: 20px;
 }
 
 .highlight-p {
@@ -363,7 +366,7 @@ small {
     }
 }
 
-/* Twitter Bootstrap – Carousel Only CSS */
+/* End Twitter Bootstrap – Carousel Only CSS */
 
 
 section.a-i-carousel{
@@ -372,7 +375,8 @@ section.a-i-carousel{
 
 .carousel-text{
     color: #fff;
-    padding: 3em 7em;
+    margin: 4em auto;
+    max-width: 480px;
 }
 
 .carousel-inner>.item>.col-md-6 {
@@ -384,6 +388,10 @@ section.a-i-carousel>.container {
     margin:0;
 }
 
+.full-width {
+    height: 100%;
+    width: 100%;
+}
 
 .carousel-control.left,.carousel-control.right  {
     background-image: none;
@@ -414,4 +422,26 @@ a.right.carousel-control {
 
 .slider-controller{
     padding: 25px;
+}
+
+@media (max-width: 1024px) {
+    .nav-pills {
+        width: 100%;
+    }
+    .nav-pills>li {
+        background-color: #008484;
+        margin-bottom: 0;
+    }
+    .nav-pills>li>a, .nav-pills>li.active>a {
+        color: #fff;
+    }
+    .nav-pills>li.active>a::after {
+        display: none;
+    }
+    .nav-pills>li:hover {
+        border: none;
+    }
+    .nav-pills>li+li {
+        margin-left: 0;
+    }
 }
