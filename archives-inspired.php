@@ -48,11 +48,11 @@ get_header(); ?>
         <section class="a-i-tabs-section"><!--Tabs sections container-->
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="#1" data-toggle="tab">Goverment</a></li>
-                    <li><a href="#2" data-toggle="tab">Public</a></li>
-                    <li><a href="#3" data-toggle="tab">Archive sector</a></li>
-                    <li><a href="#4" data-toggle="tab">Research</a></li>
-                    <li><a href="#5" data-toggle="tab">Digital</a></li>
+                    <li class="active" role="tab"><a href="#1" data-toggle="tab">Goverment</a></li>
+                    <li role="tab"><a href="#2" data-toggle="tab">Public</a></li>
+                    <li role="tab"><a href="#3" data-toggle="tab">Archive sector</a></li>
+                    <li role="tab"><a href="#4" data-toggle="tab">Research</a></li>
+                    <li role="tab"><a href="#5" data-toggle="tab">Digital</a></li>
                 </ul>
             </div>
         </section>
