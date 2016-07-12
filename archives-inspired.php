@@ -24,6 +24,16 @@ get_header(); ?>
     </div>
     <main class="content-area" role="main">
         <div class="container">
+            <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-inline">
+                            <li>Archives inspire</li>
+                            <li>Archives inspire the world</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             <section> <!--Main section-->
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
