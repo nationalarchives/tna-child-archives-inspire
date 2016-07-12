@@ -1,10 +1,9 @@
 /*
-<<<<<<< HEAD
-Theme Name:     TNA-BASE - Archives Inspired child theme
+Theme Name:     Archives inspire - child theme
 Theme URI:      http://www.nationalarchives.gov.uk/
 Author:         The National Archives
 Author URI:     http://www.nationalarchives.gov.uk/
-Description:    This is the new child themes for archives inspired
+Description:    Child theme for Archives Inspire
 Template:       tna-base
 Version:        0.1
 License:        GNU General Public License
@@ -13,3 +12,473 @@ Text Domain:    tna-base
 */
 
 /* Add custom CSS here to overwrite parent theme CSS */
+main {
+    background-color: #fff;
+}
+
+.super-heading {
+    color: #fff;
+    background-color: #008484;
+    font-size: 3.3em;
+    box-sizing: border-box;
+    display: table;
+    padding:0 15px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+h1.super-heading{
+    margin-bottom: 0;
+}
+
+h2.super-heading {
+    margin-bottom: 3em;
+    margin-top: 0;
+}
+
+a:active, a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tna-breadcrumb {
+    margin-top: 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    margin-top: 30px;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.breadcrumbs {
+    display: inline-block;
+    color: #FFF;
+    padding: 3px 7px;
+    background-color: #000;
+    background-color: rgba(0,0,0,.5);
+}
+
+.banner {
+    background-size: cover;
+    background-position: center;
+}
+
+.brochure {
+    margin-top: 20px;
+    width: 25%;
+}
+
+.brochure>small {
+    color: #2A5DB0;
+}
+
+a.brochure:focus, a.carousel-control:focus{
+    outline: #ebab00 solid 3px;
+}
+
+
+/* Tabs Section */
+.a-i-tabs-section {
+    border-bottom: 5px solid #d6d6d6;
+    margin-top: 20px;
+}
+
+.nav>li>a {
+    padding:10px 0;
+}
+
+.nav-pills .a {
+    color: #6e6e6e;
+}
+
+.nav-pills>li>a {
+    color: #000;
+    background-color: transparent;
+    font-size: 18px;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover {
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-pills>li.active>a::after{
+    content: "";
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    z-index: 1000;
+    border-top: 15px solid #d6d6d6;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin-left: -15px;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
+    background: transparent;
+    color: #6e6e6e;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-pills>li {
+    border-top: 2px solid #fff;
+    text-align: center;
+    margin-right: 65px;
+    margin-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.nav-pills>li:hover {
+    border-top:2px solid #d6d6d6;
+    background: transparent;
+    border-radius: 0;
+    -webkit-transform: scale(1);
+    /*transition: 0.5s;*/
+    -webkit-transform-origin: 50% 100%;
+    cursor: pointer;
+    transition: #6363CE .2s ease-in;
+}
+
+.nav-pills>li::before {
+    visibility: hidden;
+    transform: scaleX(1);
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+}
+
+.tab_img{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.tab-pane {
+    padding-top:40px;
+}
+
+.a-i-tabs {
+    padding-bottom: 20px;
+}
+
+.highlight-p {
+    font-size: 1.2em;
+    color: #008484;
+}
+
+.highlight-p span {
+    font-size: 2em;
+    font-weight: 400;
+    clear: right;
+}
+
+
+/* Tabs Section */
+
+
+
+/* Twitter Bootstrap – Carousel Only CSS */
+.carousel {
+    position: relative;
+}
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.carousel-inner > .item {
+    display: none;
+    position: relative;
+    -webkit-transition: 0.6s ease-in-out left;
+    transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    line-height: 1;
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+    display: block;
+}
+.carousel-inner > .active {
+    left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.carousel-inner > .next {
+    left: 100%;
+}
+.carousel-inner > .prev {
+    left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+    left: 0;
+}
+.carousel-inner > .active.left {
+    left: -100%;
+}
+.carousel-inner > .active.right {
+    left: 100%;
+}
+.carousel-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 15%;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+    left: auto;
+    right: 0;
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+    left: 50%;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+    right: 50%;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    font-family: serif;
+}
+.carousel-control .icon-prev:before {
+    content: '\2039';
+}
+.carousel-control .icon-next:before {
+    content: '\203a';
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    margin-left: -30%;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #000 \9;
+    background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+}
+.carousel-caption {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: 20px;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+    text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+    .carousel-control .glyphicon-chevron-left,
+    .carousel-control .glyphicon-chevron-right,
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next {
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        margin-left: -15px;
+        font-size: 30px;
+    }
+    .carousel-caption {
+        left: 20%;
+        right: 20%;
+        padding-bottom: 30px;
+    }
+    .carousel-indicators {
+        bottom: 20px;
+    }
+}
+
+/* End Twitter Bootstrap – Carousel Only CSS */
+
+
+section.a-i-carousel{
+    background-color: #cd5806;
+}
+
+.carousel-text{
+    color: #fff;
+    margin: 4em auto;
+    max-width: 480px;
+}
+
+.carousel-inner>.item>.col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+section.a-i-carousel>.container {
+    margin:0;
+}
+
+.full-width {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-control.left,.carousel-control.right  {
+    background-image: none;
+}
+
+a.left.carousel-control {
+    width: 32px;
+    margin: 20px;
+    height: 32px;
+    background-color: #405480;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    display: inline-block;
+}
+
+a.right.carousel-control {
+    width: 32px;
+    margin: 20px;
+    height: 32px;
+    background-color: #405480;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    display: inline-block;
+    left: 40px;
+}
+
+.slider-controller{
+    padding: 25px;
+}
+
+@media (max-width: 1024px) {
+    .nav-pills {
+        width: 100%;
+    }
+    .nav-pills>li.active, .nav-pills>li.active:hover {
+        background-color: #008484;
+        width: 48.5%;
+        display: inline-block;
+        margin: 0 5px 5px 0;
+    }
+
+    .nav-pills>li.active>a, .nav-pills>li.active>a:hover{
+        color: #fff;
+    }
+    .nav-pills>li{
+        width: 48.5%;
+        display: inline-block;
+        margin: 0 5px 5px 0;
+        background-color: #d6d6d6;
+    }
+
+    .nav-pills>li>a {
+        color: black;
+    }
+    .nav-pills>li.active>a::after {
+        display: none;
+    }
+    .nav-pills>li>a:hover {
+        color: #6d6d6d;
+        border: none;
+    }
+    .nav-pills>li:hover{
+        background-color: #d6d6d6;
+        border-top: none;
+    }
+
+    .nav-pills>li+li {
+        margin-left: 0;
+    }
+    .nav-pills>li {
+        border-top:none;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-pills>li, .nav-pills>li.active, .nav-pills>li.active:hover{
+        width: 100%;
+    }
+    .carousel-text {
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+}
