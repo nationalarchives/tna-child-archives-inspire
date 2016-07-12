@@ -24,16 +24,22 @@ get_header(); ?>
     </div>
     <main class="content-area" role="main">
         <div class="container">
-            <section>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="list-inline">
-                            <li>Archives inspire</li>
-                            <li>Archives inspire the world</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <?php
+                $args = array( 'category_name' => 'navigation' );
+                $the_query = new WP_Query( $args );
+                if ($the_query->have_posts())   : ?>
+                    <section>
+                      <div class="row">
+                         <div class="col-md-12">
+                            <ul class="list-inline">;
+                              <?php while($the_query->have_posts()) : $the_query->the_posts(); ?>
+                                <li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></li>
+                              <?php endwhile; ?>
+                            </ul>
+                         </div>
+                      </div>
+                    </section>
+                <?php endif; wp_reset_postdata(); ?>
             <section> <!--Main section-->
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">

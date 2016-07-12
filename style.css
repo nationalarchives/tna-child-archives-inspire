@@ -438,6 +438,11 @@ ul.list-inline li {
     background: url('../tna-base/img/list-link-bullet.png') left center no-repeat;
 }
 
+ul.list-inline>li>a:link, ul.list-inline>li>a, ul.list-inline>li>a:link, ul.list-inline>li>a:visited {
+    color: #2A5DB0;
+    text-decoration: none;
+}
+
 @media (max-width: 1024px) {
     .nav-pills {
         width: 100%;
