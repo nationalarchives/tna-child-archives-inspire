@@ -429,6 +429,20 @@ a.right.carousel-control {
     padding: 25px;
 }
 
+ul.list-inline{ margin-top: 10px; margin-bottom: 0}
+ul.list-inline li {
+    display: inline-block;
+    margin: 10px;
+    padding: 0 1em 0 1.5em;
+    list-style-image: none;
+    background: url('../tna-base/img/list-link-bullet.png') left center no-repeat;
+}
+
+ul.list-inline>li>a:link, ul.list-inline>li>a, ul.list-inline>li>a:link, ul.list-inline>li>a:visited {
+    color: #2A5DB0;
+    text-decoration: none;
+}
+
 @media (max-width: 1024px) {
     .nav-pills {
         width: 100%;
@@ -470,6 +484,9 @@ a.right.carousel-control {
     }
     .nav-pills>li {
         border-top:none;
+    }
+    ul.list-inline li {
+        margin: 5px;
     }
 }
 
