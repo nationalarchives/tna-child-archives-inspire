@@ -49,3 +49,10 @@ function tna_child_styles() {
     wp_enqueue_style( 'tna-child-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'tna_child_styles' );
+
+//Assign Category and Tags to WordPress Page
+function add_taxonomies_to_pages() {
+    register_taxonomy_for_object_type( 'post_tag', 'page' );
+    register_taxonomy_for_object_type( 'category', 'page' );
+}
+add_action( 'init', 'add_taxonomies_to_pages' );

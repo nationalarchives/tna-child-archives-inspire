@@ -25,21 +25,21 @@ get_header(); ?>
     <main class="content-area" role="main">
         <div class="container">
             <?php
-                $args = array( 'category_name' => 'navigation' );
+                $args = array( 'category_name' => 'navigation',  'post_type' => 'page' );
                 $the_query = new WP_Query( $args );
                 if ($the_query->have_posts())   : ?>
                     <section>
                       <div class="row">
                          <div class="col-md-12">
-                            <ul class="list-inline">;
-                              <?php while($the_query->have_posts()) : $the_query->the_posts(); ?>
+                            <ul class="list-inline">
+                              <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                                 <li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></li>
                               <?php endwhile; ?>
                             </ul>
                          </div>
                       </div>
                     </section>
-                <?php endif; wp_reset_postdata(); ?>
+                <?php endif; wp_reset_query(); ?>
             <section> <!--Main section-->
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
@@ -250,11 +250,11 @@ get_header(); ?>
                             <!-- Left and right controls -->
 
                             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                <span><</span>
+                                <span>&lt;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                <span>></span>
+                                <span>&gt;</span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
