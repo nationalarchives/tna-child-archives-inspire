@@ -41,6 +41,7 @@ get_header(); ?>
                     </section>
                 <?php endif; wp_reset_query(); ?>
             <section> <!--Main section-->
+                <h2 class="sr-only">Main section</h2>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
                         <div class="video-container">
@@ -67,6 +68,7 @@ get_header(); ?>
         $the_query = new WP_Query( $args );
         if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs-section"><!--Tabs sections container-->
+            <h2 class="sr-only">Tabs Navigation</h2>
             <div class="container">
                 <ul class="nav nav-pills">
                     <?php $active = false; ?>
@@ -84,6 +86,7 @@ get_header(); ?>
         $the_query = new WP_Query( $args );
         if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs"><!--Tabs sections-->
+            <h2 class="sr-only">Tabs</h2>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -91,12 +94,15 @@ get_header(); ?>
                             <?php $active = false; ?>
                             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                             <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
+                                <div class="col-md-12 pr-only">
+                                    <h3><?php the_title(); ?></h3>
+                                    <hr>
+                                </div>
                                 <div class="col-sm-6 col-md-6">
                                     <?php the_content(); ?>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="tab_img">
-                                        <!--<img src="<?php /*the_post_thumbnail(); */?>" class="img-responsive"  alt="some-alt">-->
                                         <img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">
                                     </div>
                                 </div>
@@ -109,6 +115,7 @@ get_header(); ?>
         </section><!--End tabs section-->
         <?php endif; wp_reset_query(); ?>
         <section class="a-i-carousel">
+            <h2 class="sr-only">Carousel section</h2>
             <div class="container-fluid">
                 <div class="row">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -190,17 +197,4 @@ get_header(); ?>
         </section>
     </main>
 </div>
-<noscript>
-    <style>
-        .tab-content>.tab-pane {
-            display: block;
-        }
-        .carousel-inner > .item {
-            display: block;
-        }
-        .nav-pills>li.active>a::after {
-            display: none;
-        }
-    </style>
-</noscript>
 <?php get_footer(); ?>
