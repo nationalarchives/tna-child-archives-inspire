@@ -93,21 +93,22 @@ get_header(); ?>
                         <div class="tab-content ">
                             <?php $active = false; ?>
                             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                            <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
-                                <div class="col-md-12 pr-only">
-                                    <h3><?php the_title(); ?></h3>
-                                    <hr>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <?php the_content(); ?>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <!--<img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">-->
-                                        <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
+                                    <div class="col-md-12 pr-only">
+                                        <h3><?php the_title(); ?></h3>
+                                        <hr>
+                                    </div>
+                                    <!--Conditional statement if post has a featured image comes here-->
+                                    <div class="col-sm-6 col-md-6">
+                                        <?php the_content();?>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="tab_img">
+                                            <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php $active = true;?>
                             <?php endwhile; ?>
                         </div>
                     </div>
