@@ -61,127 +61,53 @@ get_header(); ?>
                 </div>
             </section><!--End Main section-->
         </div><!--End container-->
+        <?php
+        $page_id = $post->ID;
+        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'orderby' => 'menu_order', 'order' => 'ASC');
+        $the_query = new WP_Query( $args );
+        if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs-section"><!--Tabs sections container-->
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li class="active" role="tab"><a href="#1" data-toggle="tab">Goverment</a></li>
-                    <li role="tab"><a href="#2" data-toggle="tab">Public</a></li>
-                    <li role="tab"><a href="#3" data-toggle="tab">Archive sector</a></li>
-                    <li role="tab"><a href="#4" data-toggle="tab">Research</a></li>
-                    <li role="tab"><a href="#5" data-toggle="tab">Digital</a></li>
+                    <?php $active = false; ?>
+                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <li class="<?php echo !$active ? "active":"";?>" role="tab"><a href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>" data-toggle="tab"><?php the_title(); ?></a></li>
+                        <?php $active = true;?>
+                    <?php endwhile; ?>
                 </ul>
             </div>
         </section>
+        <?php endif; wp_reset_query(); ?>
+        <?php
+        $page_id = $post->ID;
+        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'orderby' => 'menu_order', 'order' => 'ASC');
+        $the_query = new WP_Query( $args );
+        if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs"><!--Tabs sections-->
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tab-content ">
-                            <div class="tab-pane active" id="1">
+                            <?php $active = false; ?>
+                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                            <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
                                 <div class="col-sm-6 col-md-6">
-                                    <p class="highlight-p">
-                                        We will provide <span>expert advice</span> and scrutiny to government, making
-                                        sure that the record survives and thrives.
-                                    </p>
-                                    <p>
-                                        We are both the custodian of the public record and the government’s expert in
-                                        the management, preservation and use of information. We are uniquely placed by
-                                        virtue of our history, responsibilities and expertise to provide trusted and
-                                        independent advice and services across government and the wider public sector.
-                                    </p>
+                                    <?php the_content(); ?>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="tab_img">
-                                        <img src="http://placehold.it/800x450?text=Tab+1" class="img-responsive"
-                                             alt="some-alt">
+                                        <!--<img src="<?php /*the_post_thumbnail(); */?>" class="img-responsive"  alt="some-alt">-->
+                                        <img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="2">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="highlight-p">
-                                        We will provide <span>expert advice</span> and scrutiny to government, making
-                                        sure that the record survives and thrives.
-                                    </p>
-                                    <p>
-                                        We are both the custodian of the public record and the government’s expert in
-                                        the management, preservation and use of information. We are uniquely placed by
-                                        virtue of our history, responsibilities and expertise to provide trusted and
-                                        independent advice and services across government and the wider public sector.
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <img src="http://placehold.it/800x450?text=Tab+2" class="img-responsive"
-                                             alt="some-alt">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="3">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="highlight-p">
-                                        We will provide <span>expert advice</span> and scrutiny to government, making
-                                        sure that the record survives and thrives.
-                                    </p>
-                                    <p>
-                                        We are both the custodian of the public record and the government’s expert in
-                                        the management, preservation and use of information. We are uniquely placed by
-                                        virtue of our history, responsibilities and expertise to provide trusted and
-                                        independent advice and services across government and the wider public sector.
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <img src="http://placehold.it/800x450?text=Tab+3" class="img-responsive"
-                                             alt="some-alt">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="4">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="highlight-p">
-                                        We will provide <span>expert advice</span> and scrutiny to government, making
-                                        sure that the record survives and thrives.
-                                    </p>
-                                    <p>
-                                        We are both the custodian of the public record and the government’s expert in
-                                        the management, preservation and use of information. We are uniquely placed by
-                                        virtue of our history, responsibilities and expertise to provide trusted and
-                                        independent advice and services across government and the wider public sector.
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <img src="http://placehold.it/800x450?text=Tab+4" class="img-responsive"
-                                             alt="some-alt">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="5">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="highlight-p">
-                                        We will provide <span>expert advice</span> and scrutiny to government, making
-                                        sure that the record survives and thrives.
-                                    </p>
-                                    <p>
-                                        We are both the custodian of the public record and the government’s expert in
-                                        the management, preservation and use of information. We are uniquely placed by
-                                        virtue of our history, responsibilities and expertise to provide trusted and
-                                        independent advice and services across government and the wider public sector.
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <img src="http://placehold.it/800x450?text=Tab+5" class="img-responsive"
-                                             alt="some-alt">
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endwhile; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!--End tabs section-->
+        <?php endif; wp_reset_query(); ?>
         <section class="a-i-carousel">
             <div class="container-fluid">
                 <div class="row">
