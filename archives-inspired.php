@@ -103,7 +103,8 @@ get_header(); ?>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="tab_img">
-                                        <img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">
+                                        <!--<img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">-->
+                                        <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
                                     </div>
                                 </div>
                             </div>
