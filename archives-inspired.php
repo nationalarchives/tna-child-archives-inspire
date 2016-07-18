@@ -28,7 +28,7 @@ get_header(); ?>
                 $args = array( 'category_name' => 'navigation',  'post_type' => 'page' );
                 $the_query = new WP_Query( $args );
                 if ($the_query->have_posts())   : ?>
-                    <section>
+                    <div class="breadcrumb">
                       <div class="row">
                          <div class="col-md-12">
                             <ul class="list-inline">
@@ -38,26 +38,34 @@ get_header(); ?>
                             </ul>
                          </div>
                       </div>
-                    </section>
+                    </div>
                 <?php endif; wp_reset_query(); ?>
             <section> <!--Main section-->
                 <h2 class="sr-only">Main section</h2>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
-                                    frameborder="0" allowfullscreen=""></iframe>
+                            <!--<iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
+                                    frameborder="0" allowfullscreen=""></iframe>-->
+                            <?php
+                                $video =  get_post_meta( $post->ID, 'video_metabox', true );
+                                $embed_code = wp_oembed_get($video);
+                                echo $embed_code;
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-6 col-md-pull-6">
-                        <h2>Over the next four years we will think and organise ourselves differently, to meet the needs
+                        <!--<h2>Over the next four years we will think and organise ourselves differently, to meet the needs
                             of each of our major audiences and to face our biggest challenge – digital.</h2>
                         <p>We will change the way you think about archives.</p>
                         <a class="brochure" href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf"><img
                                 src="http://www.nationalarchives.gov.uk/wp-content/themes/tna/images/business-plan/ai-icon.jpg"
                                 alt="Download Archives Inspire 2015-19" class="brochure img-responsive">
                             <small>Read full plan (PDF)</small>
-                        </a>
+                        </a>-->
+                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                            <?php the_content(); ?>
+                        <?php endwhile; endif; ?>
                     </div>
                 </div>
             </section><!--End Main section-->

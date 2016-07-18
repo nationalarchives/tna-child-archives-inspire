@@ -77,6 +77,20 @@ a:active, a:link, a:visited {
     width: 25%;
 }
 
+.col-md-pull-6>div.wp-caption{
+    margin-top: 20px;
+}
+.col-md-pull-6>div.wp-caption>a>img{
+    width: 70%;
+}
+
+.wp-caption-text{
+    font-size: 80%;
+}
+.wp-caption-text>a {
+    color: #2A5DB0;
+}
+
 .brochure>small {
     color: #2A5DB0;
 }
@@ -429,6 +443,28 @@ a.right.carousel-control {
 
 .slider-controller{
     padding: 25px;
+}
+
+.list-inline>li{
+    margin: 0;
+    padding: 0 1em 0 1.5em;
+    list-style-image: none;
+    background: url(../tna-base/img/list-link-bullet.png) left center no-repeat;
+}
+
+.breadcrumb{
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: transparent;
+    padding-left: 0;
+}
+
+.breadcrumb>.row>.col-md-12>ul {
+    margin: 0;
+}
+
+.list-inline>li>a {
+    color: #2A5DB0;
 }
 
 @media (max-width: 1024px) {

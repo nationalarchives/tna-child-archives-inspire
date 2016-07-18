@@ -56,3 +56,58 @@ function add_taxonomies_to_pages() {
     register_taxonomy_for_object_type( 'category', 'page' );
 }
 add_action( 'init', 'add_taxonomies_to_pages' );
+
+
+//Custom field for feature video
+function video_metabox() {
+    add_meta_box(
+        'video_editor_metabox',
+        __( 'Feature Video', 'video_editor' ),
+        'video_metabox_callback',
+        'page',
+        'side',
+        'low'
+    );
+}
+add_action( 'add_meta_boxes', 'video_metabox', 0 );
+
+function video_metabox_callback( $post ) {
+        wp_nonce_field(basename(__FILE__), 'video_metabox_nonce');
+        $video_stored_meta = get_post_meta($post->ID);
+        $content = get_post_meta( $post->ID, 'video_metabox', true );
+        $editor = 'video_metabox';
+        $settings = array(
+            'textarea_rows' => 3,
+            'media_buttons' => false,
+            'teeny'         => false,
+            'dfw'           => false,
+            'tinymce'       => false,
+            'quicktags'     => false
+        );
+        wp_editor( $content, $editor, $settings);
+    ?>
+    <div class="meta-row">
+        <div class="meta-th">
+            <p class="howto">
+                Copy and paste the required video.
+            </p>
+        </div>
+    </div>
+<?php }
+
+function video_metabox_save($post_id){
+    // Checks save status
+    $is_autosave = wp_is_post_autosave( $post_id );
+    $is_revision = wp_is_post_revision( $post_id );
+    $is_valid_nonce = ( isset( $_POST[ 'video_metabox_nonce' ] ) && wp_verify_nonce( $_POST[ 'video_metabox_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+
+    // Exits script depending on save status
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+        return;
+    }
+    if ( isset( $_POST[ 'video_metabox' ] ) ) {
+        update_post_meta( $post_id, 'video_metabox', sanitize_text_field( $_POST[ 'video_metabox' ] ) );
+    }
+}
+add_action( 'save_post', 'video_metabox_save' );
+?>
