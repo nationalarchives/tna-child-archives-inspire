@@ -77,6 +77,20 @@ a:active, a:link, a:visited {
     width: 25%;
 }
 
+.col-md-pull-6>div.wp-caption{
+    margin-top: 20px;
+}
+.col-md-pull-6>div.wp-caption>a>img{
+    width: 70%;
+}
+
+.wp-caption-text{
+    font-size: 80%;
+}
+.wp-caption-text>a {
+    color: #2A5DB0;
+}
+
 .brochure>small {
     color: #2A5DB0;
 }
@@ -85,6 +99,9 @@ a.brochure:focus, a.carousel-control:focus{
     outline: #ebab00 solid 3px;
 }
 
+.pr-only {
+    display: none;
+}
 
 /* Tabs Section */
 .a-i-tabs-section {
@@ -146,7 +163,6 @@ a.brochure:focus, a.carousel-control:focus{
     /*transition: 0.5s;*/
     -webkit-transform-origin: 50% 100%;
     cursor: pointer;
-    transition: #6363CE .2s ease-in;
 }
 
 .nav-pills>li::before {
@@ -429,18 +445,26 @@ a.right.carousel-control {
     padding: 25px;
 }
 
-ul.list-inline{ margin-top: 10px; margin-bottom: 0}
-ul.list-inline li {
-    display: inline-block;
-    margin: 10px;
+.list-inline>li{
+    margin: 0;
     padding: 0 1em 0 1.5em;
     list-style-image: none;
-    background: url('../tna-base/img/list-link-bullet.png') left center no-repeat;
+    background: url(../tna-base/img/list-link-bullet.png) left center no-repeat;
 }
 
-ul.list-inline>li>a:link, ul.list-inline>li>a, ul.list-inline>li>a:link, ul.list-inline>li>a:visited {
+.breadcrumb{
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: transparent;
+    padding-left: 0;
+}
+
+.breadcrumb>.row>.col-md-12>ul {
+    margin: 0;
+}
+
+.list-inline>li>a {
     color: #2A5DB0;
-    text-decoration: none;
 }
 
 @media (max-width: 1024px) {
@@ -485,9 +509,6 @@ ul.list-inline>li>a:link, ul.list-inline>li>a, ul.list-inline>li>a:link, ul.list
     .nav-pills>li {
         border-top:none;
     }
-    ul.list-inline li {
-        margin: 5px;
-    }
 }
 
 @media (max-width: 650px) {
@@ -499,3 +520,45 @@ ul.list-inline>li>a:link, ul.list-inline>li>a, ul.list-inline>li>a:link, ul.list
         margin-right: 3em;
     }
 }
+
+@media print {
+    .banner {
+        height: 200px;
+    }
+    .super-heading {
+        margin: 0;
+    }
+    .tab-content>.tab-pane {
+        display: block;
+    }
+    .carousel-inner > .item {
+        display: block;
+    }
+    .nav-pills>li.active>a::after {
+        display: none;
+    }
+    .pr-only {
+        display: block;
+    }
+    .a-i-tabs-section {
+        display: none;
+    }
+    .carousel-control>span {
+        display: none;
+    }
+}
+
+/*No JS Stuff */
+.no-js .tab-content>.tab-pane {
+    display: block;
+}
+.no-js .carousel-inner > .item {
+    display: block;
+}
+.no-js .nav-pills>li.active>a::after {
+    display: none;
+}
+.no-js .a-i-tabs-section {
+    display: none;
+}
+/*No JS Stuff */

@@ -28,7 +28,7 @@ get_header(); ?>
                 $args = array( 'category_name' => 'navigation',  'post_type' => 'page' );
                 $the_query = new WP_Query( $args );
                 if ($the_query->have_posts())   : ?>
-                    <section>
+                    <div class="breadcrumb">
                       <div class="row">
                          <div class="col-md-12">
                             <ul class="list-inline">
@@ -38,25 +38,34 @@ get_header(); ?>
                             </ul>
                          </div>
                       </div>
-                    </section>
+                    </div>
                 <?php endif; wp_reset_query(); ?>
             <section> <!--Main section-->
+                <h2 class="sr-only">Main section</h2>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
-                                    frameborder="0" allowfullscreen=""></iframe>
+                            <!--<iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
+                                    frameborder="0" allowfullscreen=""></iframe>-->
+                            <?php
+                                $video =  get_post_meta( $post->ID, 'video_metabox', true );
+                                $embed_code = wp_oembed_get($video);
+                                echo $embed_code;
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-6 col-md-pull-6">
-                        <h2>Over the next four years we will think and organise ourselves differently, to meet the needs
+                        <!--<h2>Over the next four years we will think and organise ourselves differently, to meet the needs
                             of each of our major audiences and to face our biggest challenge – digital.</h2>
                         <p>We will change the way you think about archives.</p>
                         <a class="brochure" href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf"><img
                                 src="http://www.nationalarchives.gov.uk/wp-content/themes/tna/images/business-plan/ai-icon.jpg"
                                 alt="Download Archives Inspire 2015-19" class="brochure img-responsive">
                             <small>Read full plan (PDF)</small>
-                        </a>
+                        </a>-->
+                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                            <?php the_content(); ?>
+                        <?php endwhile; endif; ?>
                     </div>
                 </div>
             </section><!--End Main section-->
@@ -67,6 +76,7 @@ get_header(); ?>
         $the_query = new WP_Query( $args );
         if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs-section"><!--Tabs sections container-->
+            <h2 class="sr-only">Tabs Navigation</h2>
             <div class="container">
                 <ul class="nav nav-pills">
                     <?php $active = false; ?>
@@ -84,23 +94,29 @@ get_header(); ?>
         $the_query = new WP_Query( $args );
         if ($the_query->have_posts()) : ?>
         <section class="a-i-tabs"><!--Tabs sections-->
+            <h2 class="sr-only">Tabs</h2>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tab-content ">
                             <?php $active = false; ?>
                             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                            <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
-                                <div class="col-sm-6 col-md-6">
-                                    <?php the_content(); ?>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="tab_img">
-                                        <!--<img src="<?php /*the_post_thumbnail(); */?>" class="img-responsive"  alt="some-alt">-->
-                                        <img src="wp_get_attachment_image_src(get_post_thumbnail_id());" alt="Smiley face" class="img-responsive">
+                                <div class="tab-pane <?php echo !$active ? "active":"";?>" id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title()));?>">
+                                    <div class="col-md-12 pr-only">
+                                        <h3><?php the_title(); ?></h3>
+                                        <hr>
+                                    </div>
+                                    <!--Conditional statement if post has a featured image comes here-->
+                                    <div class="col-sm-6 col-md-6">
+                                        <?php the_content();?>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="tab_img">
+                                            <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php $active = true;?>
                             <?php endwhile; ?>
                         </div>
                     </div>
@@ -109,6 +125,7 @@ get_header(); ?>
         </section><!--End tabs section-->
         <?php endif; wp_reset_query(); ?>
         <section class="a-i-carousel">
+            <h2 class="sr-only">Carousel section</h2>
             <div class="container-fluid">
                 <div class="row">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -190,17 +207,4 @@ get_header(); ?>
         </section>
     </main>
 </div>
-<noscript>
-    <style>
-        .tab-content>.tab-pane {
-            display: block;
-        }
-        .carousel-inner > .item {
-            display: block;
-        }
-        .nav-pills>li.active>a::after {
-            display: none;
-        }
-    </style>
-</noscript>
 <?php get_footer(); ?>
