@@ -73,7 +73,7 @@ add_action( 'add_meta_boxes', 'video_metabox', 0 );
 
 function video_metabox_callback( $post ) {
         wp_nonce_field(basename(__FILE__), 'video_metabox_nonce');
-        $video_stored_meta = get_post_meta($post->ID);
+        //$video_stored_meta = get_post_meta($post->ID);
         $content = get_post_meta( $post->ID, 'video_metabox', true );
         $editor = 'video_metabox';
         $settings = array(
@@ -110,4 +110,55 @@ function video_metabox_save($post_id){
     }
 }
 add_action( 'save_post', 'video_metabox_save' );
-?>
+
+
+//Custom meta Feature box with call to action
+add_action( 'add_meta_boxes', 'featbox_color' );
+function featbox_color()
+{
+    add_meta_box( 'featurebox_color-id', 'Feature box with call to action', 'featurebox_color_cb', 'page', 'normal', 'high' );
+}
+
+function featurebox_color_cb( $post ){
+    $values = get_post_custom( $post->ID );
+    $selected = isset( $values['my_featurebox_select'] ) ? esc_attr( $values['my_featurebox_select'][0] ) : '';
+    wp_nonce_field( 'my_featbox_editor_nonce', 'featbox_editor_nonce' );
+    //creating the editor box
+    $content = get_post_meta( $post->ID, 'featurebox_editor', true );
+    $editor = 'featurebox_editor';
+    $settings = array(
+        'textarea_rows' => 6,
+        'media_buttons' => false,
+        'teeny'         => false,
+        'dfw'           => false,
+        'quicktags'     => false
+    );
+    wp_editor( $content, $editor, $settings);
+    ?>
+    <br>
+        <label for="my_featurebox_select"><strong>Select background color.</strong></label>
+        <select name="my_featurebox_select" id="my_featurebox_select" class="widefat">
+            <option value="mid-light-grey" <?php selected( $selected, 'mid-light-grey' ); ?>>Mid light grey</option>
+            <option value="light-grey" <?php selected( $selected, 'light-grey' ); ?>>Light grey</option>
+            <option value="lighter-grey" <?php selected( $selected, 'lighter-grey' ); ?>>Lighter grey</option>
+            <option value="lightest-grey" <?php selected( $selected, 'lightest-grey' ); ?>>Lightest grey</option>
+        </select>
+    <?php
+}
+
+add_action( 'save_post', 'featbox_save' );
+function featbox_save( $post_id ) {
+    // Bail if doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    // Bail if nonce is not varified
+    if( !isset( $_POST['featbox_editor_nonce'] ) || !wp_verify_nonce( $_POST['featbox_editor_nonce'], 'my_featbox_editor_nonce' ) ) return;
+
+    // Saving the editor field
+    if ( isset( $_POST[ 'featurebox_editor' ] ) ) {
+        update_post_meta( $post_id, 'featurebox_editor', sanitize_text_field( $_POST[ 'featurebox_editor' ] ) );
+    }
+    //Saving the select field
+    if( isset( $_POST['my_featurebox_select'] ) ) {
+        update_post_meta($post_id, 'my_featurebox_select', esc_attr($_POST['my_featurebox_select']));
+    }
+}
