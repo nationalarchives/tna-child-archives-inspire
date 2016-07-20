@@ -132,9 +132,8 @@ function featbox_meta_callback( $post ) {
         $editor = 'featbox_editor';
         $settings = array(
             'wpautop' => true,
-            'textarea_rows' => 8,
+            'textarea_rows' => 10,
             'media_buttons' => false,
-            'teeny' => true,
             'dfw' => true,
             'quicktags'     => false
 
@@ -145,8 +144,8 @@ function featbox_meta_callback( $post ) {
             <select name="featbox_select" id="featbox-select" class="widefat">
                 <option value="mid-light-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'mid-light-grey' ); ?>>Mid-light grey</option>
                 <option value="light-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'light-grey' ); ?>>Light grey</option>
-                <option value="lighter-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lighter-grey' ); ?>>Light grey</option>
-                <option value="lightest-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lightest-grey' ); ?>>Light grey</option>
+                <option value="lighter-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lighter-grey' ); ?>>Lighter grey</option>
+                <option value="lightest-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lightest-grey' ); ?>>Lightest grey</option>
             </select>
     <?php
 }
