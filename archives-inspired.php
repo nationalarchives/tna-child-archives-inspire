@@ -106,15 +106,30 @@ get_header(); ?>
                                         <h3><?php the_title(); ?></h3>
                                         <hr>
                                     </div>
-                                    <!--Conditional statement if post has a featured image comes here-->
-                                    <div class="col-sm-6 col-md-6">
-                                        <?php the_content();?>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="tab_img">
-                                            <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                    <?php
+                                    $child_video =  get_post_meta( $post->ID, 'video_metabox', true );
+                                    $child_embed_code = wp_oembed_get($child_video);
+                                    if(has_post_thumbnail()) : ?>
+                                        <div class="col-sm-6 col-md-6">
+                                            <?php the_content();?>
                                         </div>
-                                    </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="tab_img">
+                                                <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                            </div>
+                                        </div>
+                                    <?php elseif( !empty($child_video)) : ?>
+                                        <div class="col-sm-6 col-md-6">
+                                            <?php the_content(); ?>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <?php echo $child_embed_code; ?>
+                                        </div>
+                                    <?php elseif( has_post_thumbnail() == null && empty($child_video)) : ?>
+                                        <div class="col-sm-12 col-md-12">
+                                            <?php the_content(); ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             <?php $active = true;?>
                             <?php endwhile; ?>
