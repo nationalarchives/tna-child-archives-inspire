@@ -44,25 +44,25 @@ get_header(); ?>
                 <h2 class="sr-only">Main section</h2>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
-                        <div class="video-container">
-                            <!--<iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
-                                    frameborder="0" allowfullscreen=""></iframe>-->
-                            <?php
-                                $video =  get_post_meta( $post->ID, 'video_metabox', true );
-                                $embed_code = wp_oembed_get($video);
-                                echo $embed_code;
-                            ?>
-                        </div>
+                    <?php $featbox_editor = get_post_meta( $post->ID, 'featbox_editor', true );
+                        $video =  get_post_meta( $post->ID, 'video_metabox', true );
+                        $embed_code = wp_oembed_get($video);
+                        $featbox_color = get_post_meta( $post->ID, 'featbox_select', true );
+                        if ($featbox_editor) : ?>
+                            <div class="editor-container <?php echo $featbox_color; ?>">
+                                 <?php echo wpautop($featbox_editor); ?>
+                            </div>
+                        <?php elseif ($video) : ?>
+                            <div class="video-container">
+                                <?php echo $embed_code;  ?>
+                            </div>
+                        <?php elseif (!empty($featbox_editor) && !empty($video)) : ?>
+                            <div class="editor_container <?php echo $featbox_color; ?>">
+                                <?php echo wpautop($featbox_editor); ?>
+                            </div>
+                        <?php endif; wp_reset_query(); ?>
                     </div>
                     <div class="col-md-6 col-md-pull-6">
-                        <!--<h2>Over the next four years we will think and organise ourselves differently, to meet the needs
-                            of each of our major audiences and to face our biggest challenge – digital.</h2>
-                        <p>We will change the way you think about archives.</p>
-                        <a class="brochure" href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf"><img
-                                src="http://www.nationalarchives.gov.uk/wp-content/themes/tna/images/business-plan/ai-icon.jpg"
-                                alt="Download Archives Inspire 2015-19" class="brochure img-responsive">
-                            <small>Read full plan (PDF)</small>
-                        </a>-->
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <?php the_content(); ?>
                         <?php endwhile; endif; ?>

@@ -113,52 +113,56 @@ add_action( 'save_post', 'video_metabox_save' );
 
 
 //Custom meta Feature box with call to action
-add_action( 'add_meta_boxes', 'featbox_color' );
-function featbox_color()
-{
-    add_meta_box( 'featurebox_color-id', 'Feature box with call to action', 'featurebox_color_cb', 'page', 'normal', 'high' );
-}
-
-function featurebox_color_cb( $post ){
-    $values = get_post_custom( $post->ID );
-    $selected = isset( $values['my_featurebox_select'] ) ? esc_attr( $values['my_featurebox_select'][0] ) : '';
-    wp_nonce_field( 'my_featbox_editor_nonce', 'featbox_editor_nonce' );
-    //creating the editor box
-    $content = get_post_meta( $post->ID, 'featurebox_editor', true );
-    $editor = 'featurebox_editor';
-    $settings = array(
-        'textarea_rows' => 6,
-        'media_buttons' => false,
-        'teeny'         => false,
-        'dfw'           => false,
-        'quicktags'     => false
+function featbox_color_metabox() {
+    add_meta_box(
+        'featbox_meta_id',
+        __( 'Feature box with call to action' ),
+        'featbox_meta_callback',
+        'page',
+        'normal',
+        'core'
     );
-    wp_editor( $content, $editor, $settings);
-    ?>
-    <br>
-        <label for="my_featurebox_select"><strong>Select background color.</strong></label>
-        <select name="my_featurebox_select" id="my_featurebox_select" class="widefat">
-            <option value="mid-light-grey" <?php selected( $selected, 'mid-light-grey' ); ?>>Mid light grey</option>
-            <option value="light-grey" <?php selected( $selected, 'light-grey' ); ?>>Light grey</option>
-            <option value="lighter-grey" <?php selected( $selected, 'lighter-grey' ); ?>>Lighter grey</option>
-            <option value="lightest-grey" <?php selected( $selected, 'lightest-grey' ); ?>>Lightest grey</option>
-        </select>
+}
+add_action( 'add_meta_boxes', 'featbox_color_metabox' );
+function featbox_meta_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'featbox_meta_nonce' );
+    $feature_stored_meta = get_post_meta( $post->ID );
+
+        $content = get_post_meta( $post->ID, 'featbox_editor', true );
+        $editor = 'featbox_editor';
+        $settings = array(
+            'wpautop' => true,
+            'textarea_rows' => 10,
+            'media_buttons' => false,
+            'dfw' => true,
+            'quicktags'     => false
+
+        );
+        wp_editor( $content, $editor, $settings); ?>
+            <br>
+            <label for="color"><strong>Select background color</strong></label>
+            <select name="featbox_select" id="featbox-select" class="widefat">
+                <option value="mid-light-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'mid-light-grey' ); ?>>Mid-light grey</option>
+                <option value="light-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'light-grey' ); ?>>Light grey</option>
+                <option value="lighter-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lighter-grey' ); ?>>Lighter grey</option>
+                <option value="lightest-grey" <?php if ( ! empty ( $feature_stored_meta['featbox_select'] ) ) selected( $feature_stored_meta['featbox_select'][0], 'lightest-grey' ); ?>>Lightest grey</option>
+            </select>
     <?php
 }
-
-add_action( 'save_post', 'featbox_save' );
-function featbox_save( $post_id ) {
-    // Bail if doing an auto save
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-    // Bail if nonce is not varified
-    if( !isset( $_POST['featbox_editor_nonce'] ) || !wp_verify_nonce( $_POST['featbox_editor_nonce'], 'my_featbox_editor_nonce' ) ) return;
-
-    // Saving the editor field
-    if ( isset( $_POST[ 'featurebox_editor' ] ) ) {
-        update_post_meta( $post_id, 'featurebox_editor', sanitize_text_field( $_POST[ 'featurebox_editor' ] ) );
+function featbox_color_meta_save( $post_id ) {
+    // Checks save status
+    $is_autosave = wp_is_post_autosave( $post_id );
+    $is_revision = wp_is_post_revision( $post_id );
+    $is_valid_nonce = ( isset( $_POST[ 'featbox_meta_nonce' ] ) && wp_verify_nonce( $_POST[ 'featbox_meta_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+    // Exits script depending on save status
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+        return;
     }
-    //Saving the select field
-    if( isset( $_POST['my_featurebox_select'] ) ) {
-        update_post_meta($post_id, 'my_featurebox_select', esc_attr($_POST['my_featurebox_select']));
+    if ( isset( $_POST[ 'featbox_editor' ] ) ) {
+        update_post_meta( $post_id, 'featbox_editor', $_POST[ 'featbox_editor' ] ) ;
+    }
+    if ( isset( $_POST[ 'featbox_select' ] ) ) {
+        update_post_meta( $post_id, 'featbox_select', sanitize_text_field( $_POST[ 'featbox_select' ] ) );
     }
 }
+add_action( 'save_post', 'featbox_color_meta_save' );
