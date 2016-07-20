@@ -45,12 +45,12 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6">
                         <div class="video-container">
-                            <!--<iframe src="https://www.youtube.com/embed/__6LKD8RtYY?rel=0"
-                                    frameborder="0" allowfullscreen=""></iframe>-->
                             <?php
                                 $video =  get_post_meta( $post->ID, 'video_metabox', true );
                                 $embed_code = wp_oembed_get($video);
-                                echo $embed_code;
+                                if( $featbox_editor ) { echo wpautop($featbox_editor); }
+                                elseif ($video) { echo $embed_code; }
+                                elseif (!empty($featbox_editor) && !empty($video)) { echo $featbox_editor; }
                             ?>
                         </div>
                     </div>
