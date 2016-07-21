@@ -115,7 +115,7 @@ get_header(); ?>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="tab_img">
-                                                <?php the_post_thumbnail( 'medium', array( 'class' => 'img-responsive' ) ); ?>
+                                                <?php the_post_thumbnail( 'large', array( 'class' => 'img-responsive' ) ); ?>
                                             </div>
                                         </div>
                                     <?php elseif( !empty($child_video)) : ?>
