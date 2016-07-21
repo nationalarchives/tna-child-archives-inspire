@@ -166,3 +166,50 @@ function featbox_color_meta_save( $post_id ) {
     }
 }
 add_action( 'save_post', 'featbox_color_meta_save' );
+
+
+//Add sub-heading field
+function sub_heading_get_meta( $value ) {
+    global $post;
+
+    $field = get_post_meta( $post->ID, $value, true );
+    if ( ! empty( $field ) ) {
+        return is_array( $field ) ? stripslashes_deep( $field ) : stripslashes( wp_kses_decode_entities( $field ) );
+    } else {
+        return false;
+    }
+}
+
+function sub_heading_add_meta_box() {
+    add_meta_box(
+        'sub_heading-sub-heading',
+        __( 'Sub heading', 'sub_heading' ),
+        'sub_heading_html',
+        'page',
+        'side',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'sub_heading_add_meta_box' );
+
+function sub_heading_html( $post) {
+    wp_nonce_field( '_sub_heading_nonce', 'sub_heading_nonce' ); ?>
+
+    <input class="widefat" placeholder="Enter a sub heading" type="text" name="sub_heading_sub_heading" id="sub_heading_sub_heading" value="<?php echo sub_heading_get_meta( 'sub_heading_sub_heading' ); ?>">
+    </p><?php
+}
+
+function sub_heading_save( $post_id ) {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( ! isset( $_POST['sub_heading_nonce'] ) || ! wp_verify_nonce( $_POST['sub_heading_nonce'], '_sub_heading_nonce' ) ) return;
+    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+    if ( isset( $_POST['sub_heading_sub_heading'] ) )
+        update_post_meta( $post_id, 'sub_heading_sub_heading', esc_attr( $_POST['sub_heading_sub_heading'] ) );
+}
+add_action( 'save_post', 'sub_heading_save' );
+
+
+/*
+	Usage: sub_heading_get_meta( 'sub_heading_sub_heading' )
+*/
