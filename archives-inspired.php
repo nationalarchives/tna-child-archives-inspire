@@ -16,7 +16,7 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="super-heading"><?php the_title(); ?></h1>
-                        <h2 class="super-heading">2015 - 19</h2>
+                        <!--<h2 class="super-heading">2015 - 19</h2>-->
                     </div>
                 </div>
             </div>
@@ -123,7 +123,9 @@ get_header(); ?>
                                             <?php the_content(); ?>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <?php echo $child_embed_code; ?>
+                                            <div class="video-container">
+                                                <?php echo $child_embed_code; ?>
+                                            </div>
                                         </div>
                                     <?php elseif( has_post_thumbnail() == null && empty($child_video)) : ?>
                                         <div class="col-sm-12 col-md-12">
