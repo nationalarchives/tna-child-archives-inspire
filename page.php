@@ -8,6 +8,7 @@ get_header(); ?>
     if (has_post_thumbnail($post->ID)) {
         $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
     }
+
     ?>
     <div class="banner" role="banner" style="background-image: url('<?php echo make_path_relative($image[0]); ?>')">
         <?php get_template_part('breadcrumb'); ?>
@@ -18,7 +19,11 @@ get_header(); ?>
                         <h1 class="super-heading"><?php the_title(); ?></h1>
                         <?php $h2_cf = get_post_meta( $post->ID, 'video_metabox', true );
                             if ($h2_cf) : ?>
-                        <h2 class="super-heading"><?php  ?>2015 - 19</h2>
+                        <h2 class="super-heading">
+                            <?php $sub_heading = get_post_meta( $post->ID, 'sub_heading_sub_heading', true );
+                                echo $sub_heading;
+                            ?>
+                        </h2>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -144,6 +149,7 @@ get_header(); ?>
             </div>
         </section><!--End tabs section-->
         <?php endif; wp_reset_query(); ?>
+        <?php if( is_page('Archives Inspire') ) : ?>
         <section class="a-i-carousel">
             <h2 class="sr-only">Carousel section</h2>
             <div class="container-fluid">
@@ -225,6 +231,7 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
     </main>
 </div>
 <?php get_footer(); ?>

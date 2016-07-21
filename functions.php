@@ -208,8 +208,3 @@ function sub_heading_save( $post_id ) {
         update_post_meta( $post_id, 'sub_heading_sub_heading', esc_attr( $_POST['sub_heading_sub_heading'] ) );
 }
 add_action( 'save_post', 'sub_heading_save' );
-
-
-/*
-	Usage: sub_heading_get_meta( 'sub_heading_sub_heading' )
-*/
