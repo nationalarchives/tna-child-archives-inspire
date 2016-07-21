@@ -52,14 +52,13 @@ a:active, a:link, a:visited {
 }
 
 .editor-container>p{
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 .editor-container>p>a {
     background: #008484;
     color: #fff;
     padding: 1.2em;
     min-width: 24px;
-    font-family: "Bitter", "Open Sans", arial, serif;
     font-size: 1.2em;
     font-weight: normal;
 }
@@ -100,6 +99,7 @@ a:active, a:link, a:visited {
     width: 100%;
     height: 100%;
 }
+
 
 .breadcrumbs {
     display: inline-block;
@@ -220,13 +220,15 @@ a.brochure:focus, a.carousel-control:focus{
     border-top: 20px solid #f00;
 }
 
-.tab_img{
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
 .tab-pane {
     padding-top:40px;
+}
+
+.tab-pane>.col-md-12>p>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong, .tab-pane>.col-md-12>p>span>strong {
+    font-size: 2em;
+    font-weight: 700;
+    clear: right;
+    color: #009999;
 }
 
 .a-i-tabs {
