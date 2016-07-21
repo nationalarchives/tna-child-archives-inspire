@@ -16,7 +16,10 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="super-heading"><?php the_title(); ?></h1>
-                        <!--<h2 class="super-heading">2015 - 19</h2>-->
+                        <?php $h2_cf = get_post_meta( $post->ID, 'video_metabox', true );
+                            if ($h2_cf) : ?>
+                        <h2 class="super-heading"><?php  ?>2015 - 19</h2>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

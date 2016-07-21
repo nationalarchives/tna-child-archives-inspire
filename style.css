@@ -31,7 +31,7 @@ h1.super-heading{
 }
 
 h2.super-heading {
-    margin-bottom: 3em;
+    /*margin-bottom: 3em;*/
     margin-top: 0;
 }
 
@@ -112,6 +112,7 @@ a:active, a:link, a:visited {
 .banner {
     background-size: cover;
     background-position: center;
+    min-height: 25.587em;
 }
 
 .brochure {
@@ -229,14 +230,16 @@ a.brochure:focus, a.carousel-control:focus{
 }
 
 .tab-pane>.col-md-12>p>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong, .tab-pane>.col-md-12>p>span>strong {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 700;
     clear: right;
     color: #009999;
+    line-height: 1.1em;
 }
 
 .tab-pane>.col-md-12>p:first-of-type, .tab-pane>.col-md-6>p:first-of-type {
     color: #009999;
+    font-size: 1.2em;
 }
 
 .tab-pane>.col-md-12>ul, .tab-pane>.col-md-6>ul {
