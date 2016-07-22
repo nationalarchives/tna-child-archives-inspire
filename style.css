@@ -158,6 +158,11 @@ a.brochure:focus, a.carousel-control:focus{
 }
 
 /* Tabs Section */
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+    background-color: transparent;
+    color: #6e6e6e;
+}
+
 .a-i-tabs-section {
     border-bottom: 5px solid #d6d6d6;
     margin-top: 20px;
@@ -194,7 +199,7 @@ a.brochure:focus, a.carousel-control:focus{
     margin-left: -15px;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
     background: transparent;
     color: #6e6e6e;
     cursor: pointer;
@@ -520,6 +525,14 @@ section.a-i-carousel>.container {
     width: 100%;
 }
 
+.carousel-text>p>a {
+    text-decoration: underline;
+}
+
+.carousel-text>p>a:hover {
+    text-decoration: none;
+}
+
 .carousel-control.left,.carousel-control.right  {
     background-image: none;
 }
@@ -614,6 +627,9 @@ a.right.carousel-control {
     }
     .nav-pills>li {
         border-top:none;
+    }
+    .tab-pane>.col-md-12>ul, .tab-pane>.col-md-6>ul {
+        float: none;
     }
 }
 

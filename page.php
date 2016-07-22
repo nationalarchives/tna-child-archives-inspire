@@ -173,10 +173,14 @@ get_header(); ?>
                                         <p>
                                             This is just the beginning of a revolution in research technology.
                                         </p>
+                                        <p>
+                                            <a href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf">Read more in Archives Inspire 2015-19</a>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="http://placehold.it/640x440?text=Slide+1" alt="Chania" class="img-responsive full-width">
+                                    <!--<img src="http://placehold.it/640x440?text=Slide+1" alt="Chania" class="img-responsive full-width">-->
+                                    <img src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-1.png" alt="screenshot-1" class="img-responsive full-width">
                                 </div>
                             </div>
 
@@ -193,10 +197,13 @@ get_header(); ?>
                                             trenches to the classroom. We are also working with Caribbean, African and
                                             Asian communities in the UK to explore their First World War history.
                                         </p>
+                                        <p>
+                                            <a href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf">Read more in Archives Inspire 2015-19</a>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="http://placehold.it/640x440?text=Slide+2" alt="Chania" class="img-responsive full-width">
+                                    <img src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-2.png" alt="screenshot-1" class="img-responsive full-width">
                                 </div>
                             </div>
 
@@ -209,11 +216,34 @@ get_header(); ?>
                                                 evolving. A change to one law will have implications for others. How can
                                                 we follow these changes and understand their impact on our lives?
                                             </p>
+                                            <p>
+                                                <a href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf">Read more in Archives Inspire 2015-19</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="http://placehold.it/640x440?text=Slide+3" alt="Chania" class="img-responsive full-width">
+                                    <img src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-3.png" alt="screenshot-1" class="img-responsive full-width">
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-md-6">
+                                    <div class="carousel">
+                                        <div class="carousel-text">
+                                            <p>
+                                                The laws that govern our society and guarantee our rights are constantly
+                                                evolving. A change to one law will have implications for others. How can
+                                                we follow these changes and understand their impact on our lives?
+                                            </p>
+                                            <p>
+                                                <a href="http://www.nationalarchives.gov.uk/documents/archives-inspire-2015-19.pdf">Read more in Archives Inspire 2015-19</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-4.png" alt="screenshot-1" class="img-responsive full-width">
                                 </div>
                             </div>
                             <!-- Left and right controls -->
