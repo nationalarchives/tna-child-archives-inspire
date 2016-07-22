@@ -507,8 +507,7 @@ section.a-i-carousel{
 
 .carousel-text{
     color: #fff;
-    margin: 4em auto;
-    max-width: 480px;
+    margin: 4em;
 }
 
 .carousel-inner>.item>.col-md-6 {
@@ -522,7 +521,7 @@ section.a-i-carousel>.container {
 
 .full-width {
     height: 100%;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .carousel-text>p>a {
@@ -630,6 +629,9 @@ a.right.carousel-control {
     }
     .tab-pane>.col-md-12>ul, .tab-pane>.col-md-6>ul {
         float: none;
+    }
+    .full-width {
+        width:100%;
     }
 }
 
