@@ -645,6 +645,9 @@ a.right.carousel-control {
 }
 
 @media (max-width: 650px) {
+    .super-heading {
+        font-size: 2em;
+    }
     .nav-pills>li, .nav-pills>li.active, .nav-pills>li.active:hover{
         width: 100%;
     }
