@@ -18,13 +18,9 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="super-heading"><?php the_title(); ?></h1>
-                        <?php $h2_cf = get_post_meta($post->ID, 'video_metabox', true);
-                        if ($h2_cf) : ?>
-                            <h2 class="super-heading">
-                                <?php $sub_heading = get_post_meta($post->ID, 'sub_heading_sub_heading', true);
-                                echo $sub_heading;
-                                ?>
-                            </h2>
+                        <?php $sub_heading = get_post_meta($post->ID, 'sub_heading_sub_heading', true);
+                        if ($sub_heading) : ?>
+                            <h2 class="super-heading"><?php echo $sub_heading; ?></h2>
                         <?php endif; ?>
                     </div>
                 </div>

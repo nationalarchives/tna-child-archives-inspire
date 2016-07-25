@@ -58,7 +58,7 @@ a:active, a:link, a:visited {
 .editor-container {
     position: relative;
     padding: 15px 20px;
-    margin-top: 30px;
+    margin-top: 1em;
     height: auto;
 }
 
@@ -67,6 +67,11 @@ a:active, a:link, a:visited {
     font-family: "Bitter", "Open Sans", arial, serif;
     font-size: 1.6em;
 }
+
+.editor-container>p:last-of-type{
+    margin-bottom: 1.5em;
+}
+
 .editor-container>p{
     margin-bottom: 3em;
 }
