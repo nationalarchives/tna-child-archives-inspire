@@ -35,7 +35,7 @@ h2.super-heading {
     margin-top: 0;
 }
 
-section:first-of-type>div.row>div.col-md-pull-6>p:first-of-type {
+section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
     font-size: 1.6em;
     font-family: "Bitter", "Open Sans", arial, serif;
     font-weight: 400;
@@ -158,6 +158,11 @@ a.brochure:focus, a.carousel-control:focus{
 }
 
 /* Tabs Section */
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+    background-color: transparent;
+    color: #6e6e6e;
+}
+
 .a-i-tabs-section {
     border-bottom: 5px solid #d6d6d6;
     margin-top: 20px;
@@ -194,7 +199,7 @@ a.brochure:focus, a.carousel-control:focus{
     margin-left: -15px;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav>li>a:focus, .nav>li>a:hover {
     background: transparent;
     color: #6e6e6e;
     cursor: pointer;
@@ -240,7 +245,7 @@ a.brochure:focus, a.carousel-control:focus{
     margin-top: 0;
 }
 
-.tab-pane>.col-md-12>p>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong, .tab-pane>.col-md-12>p>span>strong {
+.tab-pane>.col-md-8>p>strong, .tab-pane>.col-md-8>p>span>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong {
     font-size: 1.8em;
     font-weight: 700;
     clear: right;
@@ -502,8 +507,7 @@ section.a-i-carousel{
 
 .carousel-text{
     color: #fff;
-    margin: 4em auto;
-    max-width: 480px;
+    margin: 4em;
 }
 
 .carousel-inner>.item>.col-md-6 {
@@ -516,8 +520,15 @@ section.a-i-carousel>.container {
 }
 
 .full-width {
-    height: 100%;
     width: 100%;
+}
+
+.carousel-text>p>a {
+    text-decoration: underline;
+}
+
+.carousel-text>p>a:hover {
+    text-decoration: none;
 }
 
 .carousel-control.left,.carousel-control.right  {
@@ -614,6 +625,12 @@ a.right.carousel-control {
     }
     .nav-pills>li {
         border-top:none;
+    }
+    .tab-pane>.col-md-12>ul, .tab-pane>.col-md-6>ul {
+        float: none;
+    }
+    .full-width {
+        width:100%;
     }
 }
 
