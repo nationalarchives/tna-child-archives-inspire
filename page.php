@@ -155,7 +155,7 @@ get_header(); ?>
             </section><!--End tabs section-->
         <?php endif;
         wp_reset_query(); ?>
-        <?php if (is_page('Archives Inspire')) : ?>
+        <?php if (is_page('Archives inspire') || is_page('Archives Inspire') || is_page('ARCHIVES INSPIRE')) : ?>
             <section class="a-i-carousel">
                 <h2 class="sr-only">Carousel section</h2>
                 <div class="container-fluid">
