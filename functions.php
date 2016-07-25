@@ -199,6 +199,7 @@ function sub_heading_html( $post) {
     </p><?php
 }
 
+
 function sub_heading_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( ! isset( $_POST['sub_heading_nonce'] ) || ! wp_verify_nonce( $_POST['sub_heading_nonce'], '_sub_heading_nonce' ) ) return;
@@ -208,3 +209,13 @@ function sub_heading_save( $post_id ) {
         update_post_meta( $post_id, 'sub_heading_sub_heading', esc_attr( $_POST['sub_heading_sub_heading'] ) );
 }
 add_action( 'save_post', 'sub_heading_save' );
+
+
+add_filter( 'oembed_dataparse', function( $return, $data, $url ){
+    if( false === strpos( $return,'youtube.com' ) )
+        return $return;
+
+    //$id = explode( 'watch?v=', $url );
+    $add_id = str_replace( 'allowfullscreen>', 'allowfullscreen id="video">', $return );
+    return $add_id;
+}, 10, 3 );

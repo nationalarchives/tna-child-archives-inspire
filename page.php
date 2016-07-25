@@ -3,6 +3,7 @@
 Template Name: Archives inspire
 */
 get_header(); ?>
+
 <div class="a-i">
     <?php
     if (has_post_thumbnail($post->ID)) {
@@ -53,7 +54,7 @@ get_header(); ?>
             <section> <!--Main section-->
                 <h2 class="sr-only">Main section</h2>
                 <div class="row">
-                    <div class="col-md-6 col-md-push-6">
+                    <div class="col-md-4 col-md-push-8">
                         <?php $featbox_editor = get_post_meta($post->ID, 'featbox_editor', true);
                         $video = get_post_meta($post->ID, 'video_metabox', true);
                         $embed_code = wp_oembed_get($video);
@@ -73,7 +74,7 @@ get_header(); ?>
                         <?php endif;
                         wp_reset_query(); ?>
                     </div>
-                    <div class="col-md-6 col-md-pull-6">
+                    <div class="col-md-8 col-md-pull-4">
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <?php the_content(); ?>
                         <?php endwhile; endif; ?>
@@ -143,9 +144,10 @@ get_header(); ?>
                                                 </div>
                                             </div>
                                         <?php elseif (has_post_thumbnail() == null && empty($child_video)) : ?>
-                                            <div class="col-sm-12 col-md-12">
+                                            <div class="col-sm-8 col-md-8">
                                                 <?php the_content(); ?>
                                             </div>
+                                            <div class="col-sm-4 col-md-12"></div>
                                         <?php endif; ?>
                                     </div>
                                     <?php $active = true; ?>

@@ -35,7 +35,7 @@ h2.super-heading {
     margin-top: 0;
 }
 
-section:first-of-type>div.row>div.col-md-pull-6>p:first-of-type {
+section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
     font-size: 1.6em;
     font-family: "Bitter", "Open Sans", arial, serif;
     font-weight: 400;
@@ -245,7 +245,7 @@ a.brochure:focus, a.carousel-control:focus{
     margin-top: 0;
 }
 
-.tab-pane>.col-md-12>p>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong, .tab-pane>.col-md-12>p>span>strong {
+.tab-pane>.col-md-8>p>strong, .tab-pane>.col-md-8>p>span>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong {
     font-size: 1.8em;
     font-weight: 700;
     clear: right;
@@ -520,8 +520,7 @@ section.a-i-carousel>.container {
 }
 
 .full-width {
-    height: 100%;
-    /*width: 100%;*/
+    width: 100%;
 }
 
 .carousel-text>p>a {
