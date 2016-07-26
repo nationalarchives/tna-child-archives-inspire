@@ -46,11 +46,6 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
     margin-bottom: 10px;
 }
 
-a:active, a:link, a:visited {
-    color: #fff;
-    text-decoration: none;
-}
-
 .tna-breadcrumb {
     margin-top: 0;
 }
@@ -121,6 +116,9 @@ a:active, a:link, a:visited {
     height: 100%;
 }
 
+.video-container>p{
+    margin: 0 0 .5em;
+}
 
 .breadcrumbs {
     display: inline-block;
@@ -159,6 +157,10 @@ a:active, a:link, a:visited {
     color: #2A5DB0;
 }
 
+.parent_section {
+    margin-bottom: 20px;
+}
+
 a.brochure:focus, a.carousel-control:focus{
     outline: #ebab00 solid 3px;
 }
@@ -175,7 +177,6 @@ a.brochure:focus, a.carousel-control:focus{
 
 .a-i-tabs-section {
     border-bottom: 5px solid #d6d6d6;
-    margin-top: 20px;
 }
 
 .nav>li>a {
@@ -520,10 +521,15 @@ section.a-i-carousel{
     margin: 4em;
 }
 
+.carousel-text>p>a {
+    color: #fff;
+}
+
 .carousel-inner>.item>.col-md-6 {
     padding-left: 0;
     padding-right: 0;
 }
+
 
 section.a-i-carousel>.container {
     margin:0;
@@ -545,7 +551,7 @@ section.a-i-carousel>.container {
     background-image: none;
 }
 
-a.left.carousel-control {
+a.left.carousel-control, a.right.carousel-control {
     width: 32px;
     margin: 20px;
     height: 32px;
@@ -554,17 +560,14 @@ a.left.carousel-control {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     display: inline-block;
+    color: #fff;
+}
+
+a.left.carousel-control>span, a.right.carousel-control>span {
+    color: #fff;
 }
 
 a.right.carousel-control {
-    width: 32px;
-    margin: 20px;
-    height: 32px;
-    background-color: #405480;
-    border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    display: inline-block;
     left: 40px;
 }
 

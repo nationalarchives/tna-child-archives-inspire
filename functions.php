@@ -45,6 +45,7 @@ add_action( 'wp_head', 'dequeue_parent_style', 9999 );
 function tna_child_styles() {
     wp_register_style( 'tna-parent-styles', get_template_directory_uri() . '/css/base-sass.css.min', array(), EDD_VERSION, 'all' );
     wp_register_style( 'tna-child-styles', get_stylesheet_directory_uri() . '/style.css', array(), '0.1', 'all' );
+    wp_enqueue_script( 'bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '', true );
     wp_enqueue_style( 'tna-parent-styles' );
     wp_enqueue_style( 'tna-child-styles' );
 }
@@ -77,12 +78,15 @@ function video_metabox_callback( $post ) {
         $content = get_post_meta( $post->ID, 'video_metabox', true );
         $editor = 'video_metabox';
         $settings = array(
-            'textarea_rows' => 3,
-            'media_buttons' => false,
-            'teeny'         => false,
-            'dfw'           => false,
-            'tinymce'       => false,
-            'quicktags'     => false
+            'wpautop' => false,
+            'textarea_rows' => 10,
+            'media_buttons' => true,
+            'teeny' => true, // show minimal editor
+            'dfw' => false, // replace the default fullscreen with DFW
+            'tinymce' => array(
+                // Items for the Visual Tab
+                'toolbar1'=> 'undo,redo,',
+            ),
         );
         wp_editor( $content, $editor, $settings);
     ?>

@@ -46,13 +46,14 @@ get_header(); ?>
                 </div>
             <?php endif;
             wp_reset_query(); ?>
-            <section> <!--Main section-->
+            <section class="parent_section"> <!--Main section-->
                 <h2 class="sr-only">Main section</h2>
                 <div class="row">
                     <div class="col-md-4 col-md-push-8">
                         <?php $featbox_editor = get_post_meta($post->ID, 'featbox_editor', true);
                         $video = get_post_meta($post->ID, 'video_metabox', true);
-                        $embed_code = wp_oembed_get($video);
+                        $video_filter = apply_filters('the_content',$video);
+                        //apply_filters('the_content',$child_video);
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
                             <div class="editor-container <?php echo $featbox_color; ?>">
@@ -60,7 +61,9 @@ get_header(); ?>
                             </div>
                         <?php elseif ($video) : ?>
                             <div class="video-container">
-                                <?php echo $embed_code; ?>
+                                <?php //echo $embed_code;
+                                echo $video_filter;
+                                ?>
                             </div>
                         <?php elseif (!empty($featbox_editor) && !empty($video)) : ?>
                             <div class="editor_container <?php echo $featbox_color; ?>">
@@ -135,7 +138,11 @@ get_header(); ?>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="video-container">
-                                                    <?php echo $child_embed_code; ?>
+                                                    <?php
+                                                    $video_filter = apply_filters('the_content',$child_video);
+                                                    echo $video_filter;
+                                                    //echo $child_video;
+                                                    ?>
                                                 </div>
                                             </div>
                                         <?php elseif (has_post_thumbnail() == null && empty($child_video)) : ?>
@@ -154,7 +161,9 @@ get_header(); ?>
             </section><!--End tabs section-->
         <?php endif;
         wp_reset_query(); ?>
-        <?php if (is_page('Archives inspire') || is_page('Archives Inspire') || is_page('ARCHIVES INSPIRE')) : ?>
+        <?php
+        $sub_heading = get_post_meta($post->ID, 'sub_heading_sub_heading', true);
+        if ($sub_heading == '2016 - 19') : ?>
             <section class="a-i-carousel">
                 <h2 class="sr-only">Carousel section</h2>
                 <div class="container-fluid">
