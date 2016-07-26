@@ -3,7 +3,6 @@
 Template Name: Archives inspire
 */
 get_header(); ?>
-
 <div class="a-i">
     <?php
     if (has_post_thumbnail($post->ID)) {
@@ -89,9 +88,9 @@ get_header(); ?>
                     <ul class="nav nav-pills">
                         <?php $active = false; ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li class="<?php echo !$active ? "active" : ""; ?>" role="tab"><a
-                                    href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
-                                    data-toggle="tab"><?php the_title(); ?></a></li>
+                            <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
+                                <a class="stop" href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>" data-toggle="tab"><?php the_title(); ?></a>
+                            </li>
                             <?php $active = true; ?>
                         <?php endwhile; ?>
                     </ul>
