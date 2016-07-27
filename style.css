@@ -223,7 +223,7 @@ a.brochure:focus, a.carousel-control:focus{
 .nav-pills>li {
     border-top: 2px solid #fff;
     text-align: center;
-    margin-right: 65px;
+    margin-right: 1em;
     margin-bottom: 0;
     padding-left: 10px;
     padding-right: 10px;
