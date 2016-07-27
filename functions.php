@@ -20,7 +20,8 @@ function tnatheme_globals() {
             'Our plans' => '/about/our-role/plans-policies-performance-and-projects/our-plans/',
             'Site home title' => '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/'
         );
-        $pre_path = '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire';
+
+        $pre_path = '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/';
     }
 }
 // If web development machine
