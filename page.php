@@ -52,7 +52,7 @@ get_header(); ?>
                     <div class="col-md-4 col-md-push-8">
                         <?php $featbox_editor = get_post_meta($post->ID, 'featbox_editor', true);
                         $video = get_post_meta($post->ID, 'video_metabox', true);
-                        $video_filter = apply_filters('the_content',$video);
+                        $video_filter = apply_filters('the_content', $video);
                         //apply_filters('the_content',$child_video);
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
@@ -92,7 +92,9 @@ get_header(); ?>
                         <?php $active = false; ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
-                                <a class="stop" href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>" data-toggle="tab"><?php the_title(); ?></a>
+                                <a class="stop"
+                                   href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
+                                   data-toggle="tab"><?php the_title(); ?></a>
                             </li>
                             <?php $active = true; ?>
                         <?php endwhile; ?>
@@ -122,9 +124,11 @@ get_header(); ?>
                                         </div>
                                         <?php
                                         $child_video = get_post_meta($post->ID, 'video_metabox', true);
-                                        $child_embed_code = wp_oembed_get($child_video);
                                         if (has_post_thumbnail()) : ?>
                                             <div class="col-md-6">
+                                                <?php if (in_category('case-study')) : ?>
+                                                    <span class="case-study">Case Study</span>
+                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-md-6">
@@ -134,19 +138,24 @@ get_header(); ?>
                                             </div>
                                         <?php elseif (!empty($child_video)) : ?>
                                             <div class="col-md-6">
+                                                <?php if (in_category('case-study')) : ?>
+                                                    <span class="case-study">Case Study</span>
+                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="video-container">
                                                     <?php
-                                                    $video_filter = apply_filters('the_content',$child_video);
+                                                    $video_filter = apply_filters('the_content', $child_video);
                                                     echo $video_filter;
-                                                    //echo $child_video;
                                                     ?>
                                                 </div>
                                             </div>
                                         <?php elseif (has_post_thumbnail() == null && empty($child_video)) : ?>
                                             <div class="col-sm-8 col-md-8">
+                                                <?php if (in_category('case-study')) : ?>
+                                                    <span class="case-study">Case Study</span>
+                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-sm-4 col-md-12"></div>
@@ -162,8 +171,7 @@ get_header(); ?>
         <?php endif;
         wp_reset_query(); ?>
         <?php
-        $sub_heading = get_post_meta($post->ID, 'sub_heading_sub_heading', true);
-        if ($sub_heading == '2016 - 19') : ?>
+        if (in_category('carousel')) : ?>
             <section class="a-i-carousel">
                 <h2 class="sr-only">Carousel section</h2>
                 <div class="container-fluid">
@@ -196,9 +204,8 @@ get_header(); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <!--<img src="http://placehold.it/640x440?text=Slide+1" alt="Chania" class="img-responsive full-width">-->
                                         <img
-                                            src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-1.png"
+                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -228,7 +235,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-2.png"
+                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -253,7 +260,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-3.png"
+                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -278,7 +285,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="http://multisite-dev/wp-content/themes/tna-child-archives-inspired/img/archives-inspire-screenshot-4.png"
+                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>

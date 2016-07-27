@@ -26,6 +26,11 @@ main {
     margin-top: 25px;
     text-transform: uppercase;
 }
+
+#breadcrumb-holder a {
+    color: #fff;
+}
+
 h1.super-heading{
     margin-bottom: 0;
 }
@@ -64,19 +69,17 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 }
 
 .editor-container>p:last-of-type{
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
 
 .editor-container>p{
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 .editor-container>p>a {
     background: #008484;
     color: #fff;
-    padding: 1.2em;
+    padding: .5em;
     min-width: 24px;
-    font-size: 1.2em;
-    font-weight: normal;
 }
 
 .editor-container>p>a:hover {
@@ -518,7 +521,7 @@ section.a-i-carousel{
 
 .carousel-text{
     color: #fff;
-    margin: 4em;
+    margin: 4em 2em 2em;
 }
 
 .carousel-text>p>a {
@@ -530,6 +533,13 @@ section.a-i-carousel{
     padding-right: 0;
 }
 
+span.case-study {
+    font-family: Bitter,"Open Sans",arial,serif;
+    font-weight: 400;
+    font-size: 1.6em;
+    z-index: 2;
+    letter-spacing: -.025em;
+}
 
 section.a-i-carousel>.container {
     margin:0;
