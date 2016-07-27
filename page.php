@@ -85,7 +85,7 @@ get_header(); ?>
         </div><!--End container-->
         <?php
         $page_id = $post->ID;
-        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'orderby' => 'menu_order', 'order' => 'ASC');
+        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'post_per_page' => 6, 'orderby' => 'menu_order', 'order' => 'ASC');
         $the_query = new WP_Query($args);
         if ($the_query->have_posts()) : ?>
             <section class="a-i-tabs-section"><!--Tabs sections container-->
