@@ -75,6 +75,9 @@ get_header(); ?>
                     <div class="col-md-8 col-md-pull-4">
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <?php the_content(); ?>
+                            <?php if (in_category('case-study')) : ?>
+                                <span class="case-study">Case studies</span>
+                            <?php endif; ?>
                         <?php endwhile; endif; ?>
                     </div>
                 </div>
@@ -126,9 +129,6 @@ get_header(); ?>
                                         $child_video = get_post_meta($post->ID, 'video_metabox', true);
                                         if (has_post_thumbnail()) : ?>
                                             <div class="col-md-6">
-                                                <?php if (in_category('case-study')) : ?>
-                                                    <span class="case-study">Case Study</span>
-                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-md-6">
@@ -138,9 +138,6 @@ get_header(); ?>
                                             </div>
                                         <?php elseif (!empty($child_video)) : ?>
                                             <div class="col-md-6">
-                                                <?php if (in_category('case-study')) : ?>
-                                                    <span class="case-study">Case Study</span>
-                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-md-6">
@@ -153,9 +150,6 @@ get_header(); ?>
                                             </div>
                                         <?php elseif (has_post_thumbnail() == null && empty($child_video)) : ?>
                                             <div class="col-sm-8 col-md-8">
-                                                <?php if (in_category('case-study')) : ?>
-                                                    <span class="case-study">Case Study</span>
-                                                <?php endif; ?>
                                                 <?php the_content(); ?>
                                             </div>
                                             <div class="col-sm-4 col-md-12"></div>
