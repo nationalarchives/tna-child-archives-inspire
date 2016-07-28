@@ -75,8 +75,11 @@ get_header(); ?>
                     <div class="col-md-8 col-md-pull-4">
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <?php the_content(); ?>
+                            <?php if (in_category('form')) : ?>
+                                <iframe src="https://r1.dotmailer-surveys.com/b2mand7-0d1xfr61" width="100%" height="900" frameborder="0" scrolling="no"></iframe>
+                            <?php endif; ?>
                             <?php if (in_category('case-study')) : ?>
-                                <span class="case-study">Case studies</span>
+                                <h2>Case studies</h2>
                             <?php endif; ?>
                         <?php endwhile; endif; ?>
                     </div>
@@ -97,7 +100,7 @@ get_header(); ?>
                             <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
                                 <a class="stop"
                                    href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
-                                   data-toggle="tab"><?php the_title(); ?></a>
+                                   data-toggle="tab"><h3><?php the_title(); ?></h3></a>
                             </li>
                             <?php $active = true; ?>
                         <?php endwhile; ?>

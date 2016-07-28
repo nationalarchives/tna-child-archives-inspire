@@ -178,6 +178,13 @@ a.brochure:focus, a.carousel-control:focus{
     color: #6e6e6e;
 }
 
+.nav-pills h3 {
+    font-family: inherit;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .a-i-tabs-section {
     border-bottom: 5px solid #d6d6d6;
 }
@@ -204,7 +211,7 @@ a.brochure:focus, a.carousel-control:focus{
 .nav-pills>li.active>a::after{
     content: "";
     position: absolute;
-    top: 110%;
+    top: 105%;
     left: 50%;
     z-index: 1000;
     border-top: 15px solid #d6d6d6;
@@ -531,14 +538,6 @@ section.a-i-carousel{
 .carousel-inner>.item>.col-md-6 {
     padding-left: 0;
     padding-right: 0;
-}
-
-span.case-study {
-    font-family: Bitter,"Open Sans",arial,serif;
-    font-weight: 400;
-    font-size: 1.6em;
-    z-index: 2;
-    letter-spacing: -.025em;
 }
 
 section.a-i-carousel>.container {
