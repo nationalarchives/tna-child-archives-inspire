@@ -186,13 +186,19 @@ a.brochure:focus, a.carousel-control:focus{
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus {
     background-color: transparent;
     color: #6e6e6e;
+    border-top: 2px solid #d6d6d6;
 }
 
 .nav-pills h3 {
+    color: #000;
     font-family: inherit;
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+li.active h3 {
+    color: #6e6e6e;
 }
 
 .a-i-tabs-section {
@@ -200,7 +206,7 @@ a.brochure:focus, a.carousel-control:focus{
 }
 
 .nav>li>a {
-    padding:10px 0;
+    padding:10px;
 }
 
 .nav-pills .a {
@@ -211,6 +217,8 @@ a.brochure:focus, a.carousel-control:focus{
     color: #000;
     background-color: transparent;
     font-size: 18px;
+    border-radius: 0;
+    border-top: 2px solid transparent;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
@@ -242,10 +250,8 @@ a.brochure:focus, a.carousel-control:focus{
     text-align: center;
     margin-right: 1em;
     margin-bottom: 0;
-    padding-left: 10px;
-    padding-right: 10px;
 }
-.nav-pills>li:hover {
+.nav-pills li a[aria-expanded=false]:hover::before {
     border-top:2px solid #d6d6d6;
     background: transparent;
     border-radius: 0;
@@ -253,11 +259,33 @@ a.brochure:focus, a.carousel-control:focus{
     /*transition: 0.5s;*/
     -webkit-transform-origin: 50% 100%;
     cursor: pointer;
+    visibility: visible;
+    transform: scaleX(1);
 }
 
-.nav-pills>li::before {
-    visibility: hidden;
+.nav-pills li a:hover::after {
+    -webkit-transform: scale(1);
     transform: scaleX(1);
+    -webkit-transform-origin: 100% 50%;
+}
+
+.nav-pills li a:before, .nav-pills li a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: -2px;
+    left: 0;
+    background-color: #d6d6d6;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+}
+
+.nav-pills>li.active>a:visited {
+    border-top: 2px #d6d6d6 solid;
 }
 
 .arrow-down {
@@ -664,6 +692,15 @@ a.right.carousel-control {
     .full-width {
         width:100%;
     }
+    .nav-pills>li.active>a {
+        border-top-width: 0;
+    }
+    .nav-pills li.active h3 {
+        color: #fff;
+    }
+    .nav-pills>li>a {
+        border-top: 0 transparent solid;
+    }
 }
 
 @media (max-width: 650px) {
@@ -676,6 +713,15 @@ a.right.carousel-control {
     .carousel-text {
         margin-left: 3em;
         margin-right: 3em;
+    }
+    li.active h3 {
+        color: #fff;
+    }
+    .nav-pills>li>a {
+        border-top: 0 transparent solid;
+    }
+    .nav-pills>li.active>a {
+        border-top-width: 0;
     }
 }
 
