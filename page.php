@@ -29,7 +29,7 @@ get_header(); ?>
     <main class="content-area" role="main">
         <div class="container">
             <?php
-            $args = array('category_name' => 'navigation', 'post_type' => 'page');
+            $args = array('category_name' => 'navigation', 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order');
             $the_query = new WP_Query($args);
             if ($the_query->have_posts())   : ?>
                 <div class="breadcrumb">
