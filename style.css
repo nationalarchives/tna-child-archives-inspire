@@ -250,7 +250,7 @@ li.active h3 {
     margin-right: 1em;
     margin-bottom: 0;
 }
-.nav-pills li a[aria-expanded=false]:hover::before {
+.nav-pills li a:hover::before {
     border-top:2px solid #d6d6d6;
     background: transparent;
     border-radius: 0;
@@ -700,6 +700,12 @@ a.right.carousel-control {
     .nav-pills>li>a {
         border-top: 0 transparent solid;
     }
+    .nav-pills li a:hover::before {
+        visibility: hidden;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+        border-top: hidden;
+    }
 }
 
 @media (max-width: 650px) {
@@ -721,6 +727,12 @@ a.right.carousel-control {
     }
     .nav-pills>li.active>a {
         border-top-width: 0;
+    }
+    .nav-pills li a:hover::before {
+        visibility: hidden;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+        border-top: hidden;
     }
 }
 
