@@ -132,12 +132,14 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
     margin: 0 0 .5em;
 }
 
-.breadcrumbs {
+.tna-breadcrumb .breadcrumbs {
     display: inline-block;
     color: #FFF;
     padding: 3px 7px;
     background-color: #000;
     background-color: rgba(0,0,0,.5);
+    font-size: .9em;
+    margin: 2em 0;
 }
 
 .banner {

@@ -4,14 +4,18 @@ Template Name: Archives inspire
 */
 get_header(); ?>
 <div class="a-i">
-    <?php
-    if (has_post_thumbnail($post->ID)) {
-        $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+    <div class="banner" role="banner" style="background-image: url('<?php
+    $page_id = $post->ID;
+    $image = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'single-post-thumbnail');
+    $childimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->post_parent ), 'single-post-thumbnail' );
+    if (has_post_thumbnail($page_id)) {
+        echo make_path_relative($image[0]);
     }
-
-    ?>
-    <div class="banner" role="banner" style="background-image: url('<?php echo make_path_relative($image[0]); ?>')">
-        <?php get_template_part('breadcrumb'); ?>
+    elseif (is_page($page_id)) {
+        echo make_path_relative($childimage[0]);
+    }
+    ?>')">
+    <?php get_template_part('breadcrumb'); ?>
         <div class="heading-banner text-left">
             <div class="container">
                 <div class="row">
@@ -37,7 +41,7 @@ get_header(); ?>
                         <div class="col-md-12">
                             <ul class="list-inline">
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"
+                                    <li><a href="<?php echo make_path_relative(get_page_link()); ?>" title="<?php the_title_attribute(); ?>"
                                            rel="bookmark"><?php the_title(); ?></a></li>
                                 <?php endwhile; ?>
                             </ul>
@@ -57,7 +61,7 @@ get_header(); ?>
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
                             <div class="editor-container <?php echo $featbox_color; ?>">
-                                <?php echo wpautop($featbox_editor); ?>
+                                <?php echo make_path_relative(wpautop($featbox_editor)); ?>
                             </div>
                         <?php elseif ($video) : ?>
                             <div class="video-container">
@@ -78,7 +82,7 @@ get_header(); ?>
                             <?php if (in_category('form')) : ?>
                                 <iframe src="https://r1.dotmailer-surveys.com/b2mand7-0d1xfr61" frameborder="0" scrolling="no"></iframe>
                             <?php endif; ?>
-                            <?php if (in_category('case-study')) : ?>
+                            <?php if (in_category('case-study') &&  $post->post_parent==$pageID ) : ?>
                                 <h2>Case studies</h2>
                             <?php endif; ?>
                         <?php endwhile; endif; ?>
@@ -136,7 +140,12 @@ get_header(); ?>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tab_img">
-                                                    <?php the_post_thumbnail('large', array('class' => 'img-responsive')); ?>
+                                                    <?php
+                                                    $thumb_id = get_post_thumbnail_id();
+                                                    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
+                                                    $thumb_url = $thumb_url_array[0];
+                                                    ?>
+                                                    <img src="<?php echo make_path_relative($thumb_url) ?>" alt="<?php the_title(); ?>" class="img-responsive">
                                                 </div>
                                             </div>
                                         <?php elseif (!empty($child_video)) : ?>
