@@ -211,7 +211,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-1.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-2.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-3.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -291,7 +291,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo get_stylesheet_directory_uri(); ?>/img/archives-inspire-screenshot-4.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
