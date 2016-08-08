@@ -153,6 +153,11 @@ get_header();
                                                     ?>
                                                     <img src="<?php echo make_path_relative($thumb_url) ?>"
                                                          alt="<?php the_title(); ?>" class="img-responsive">
+                                                    <?php $thumb_img = get_post( get_post_thumbnail_id() );
+                                                            $thumb_title = $thumb_img->post_title;
+                                                        if ($thumb_title) : ?>
+                                                            <?= "<p class='wp-caption-text'>$thumb_title</p>" ?>
+                                                        <?php endif; ?>
                                                 </div>
                                             </div>
                                         <?php elseif (!empty($child_video)) : ?>
