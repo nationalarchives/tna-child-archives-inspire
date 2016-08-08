@@ -7,7 +7,7 @@ function tnatheme_globals() {
     global $pre_crumbs;
     // If internal TNA
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
-        $pre_path = '';
+        $pre_path = '/archives-inspire';
         $pre_crumbs = array(
             'Archives inspire' => '/'
         );
@@ -15,13 +15,10 @@ function tnatheme_globals() {
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'Our role' => '/about/our-role/',
-            'Plans, policies, performance and projects' => '/about/our-role/plans-policies-performance-and-projects/',
-            'Our plans' => '/about/our-role/plans-policies-performance-and-projects/our-plans/',
-            'Site home title' => '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/'
+            'Archives inspire' => '/about/archives-inspire/',
         );
 
-        $pre_path = '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire/';
+        $pre_path = '/about/archives-inspire';
     }
 }
 // If web development machine
