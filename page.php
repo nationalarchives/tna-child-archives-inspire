@@ -10,9 +10,9 @@ get_header();
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'single-post-thumbnail');
     $childimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->post_parent), 'single-post-thumbnail');
     if (has_post_thumbnail($page_id)) {
-        echo str_replace(site_url(),'',$image[0]);
+        echo make_path_relative($image[0]);
     } elseif (is_page($page_id)) {
-        echo str_replace(site_url(),'',$childimage[0]);
+        echo make_path_relative($childimage[0]);
     }
     ?>')">
         <?php get_template_part('breadcrumb'); ?>
@@ -20,10 +20,10 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="super-heading"><?= get_the_title(); ?></h1>
+                        <h1 class="super-heading"><?php echo get_the_title(); ?></h1>
                         <?php $sub_heading = get_post_meta($page_id, 'sub_heading_sub_heading', true);
                         if ($sub_heading) : ?>
-                            <h2 class="super-heading"><?= $sub_heading; ?></h2>
+                            <h2 class="super-heading"><?php echo $sub_heading; ?></h2>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ get_header();
                             <ul class="list-inline">
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                     <li>
-                                        <a href="<?= make_path_relative(get_page_link()); ?>"
+                                        <a href="<?php echo make_path_relative(get_page_link()); ?>"
                                                title="<?php the_title_attribute(); ?>"
                                                rel="bookmark"><?php the_title(); ?>
                                         </a>
@@ -62,18 +62,19 @@ get_header();
                         <?php $featbox_editor = get_post_meta($post->ID, 'featbox_editor', true);
                         $video = get_post_meta($post->ID, 'video_metabox', true);
                         $video_filter = apply_filters('the_content', $video);
+                        //apply_filters('the_content',$child_video);
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
-                            <div class="editor-container <?= $featbox_color; ?>">
-                                <?= make_path_relative(wpautop($featbox_editor)); ?>
+                            <div class="editor-container <?php echo $featbox_color; ?>">
+                                <?php echo make_path_relative(wpautop($featbox_editor)); ?>
                             </div>
                         <?php elseif ($video) : ?>
                             <div class="video-container">
-                                <?= $video_filter; ?>
+                                <?php echo $video_filter; ?>
                             </div>
                         <?php elseif (!empty($featbox_editor) && !empty($video)) : ?>
-                            <div class="editor_container <?= $featbox_color; ?>">
-                                <?= wpautop($featbox_editor); ?>
+                            <div class="editor_container <?php echo $featbox_color; ?>">
+                                <?php echo wpautop($featbox_editor); ?>
                             </div>
                         <?php endif;
                         wp_reset_query(); ?>
@@ -104,9 +105,9 @@ get_header();
                     <ul class="nav nav-pills">
                         <?php $active = false; ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li class="<?= !$active ? "active" : ""; ?>" role="tab">
+                            <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
                                 <a class="stop"
-                                   href="#<?= sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
+                                   href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
                                    data-toggle="tab"><h3><?php the_title(); ?></h3></a>
                             </li>
                             <?php $active = true; ?>
@@ -129,8 +130,8 @@ get_header();
                             <div class="tab-content ">
                                 <?php $active = false; ?>
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <div class="tab-pane <?= !$active ? "active" : ""; ?>"
-                                         id="<?= sanitize_title_with_dashes(strtolower(get_the_title())); ?>">
+                                    <div class="tab-pane <?php echo !$active ? "active" : ""; ?>"
+                                         id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>">
                                         <div class="col-md-12 pr-only">
                                             <h3><?php the_title(); ?></h3>
                                             <hr>
@@ -147,15 +148,15 @@ get_header();
                                                     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
                                                     $thumb_url = $thumb_url_array[0];
                                                     ?>
-                                                    <img src="<?= str_replace(site_url(),'',make_path_relative($thumb_url)) //echo str_replace(site_url(),'',$image[0]);?>"
+                                                    <img src="<?php echo make_path_relative($thumb_url) ?>"
                                                          alt="<?php the_title(); ?>" class="img-responsive">
                                                     <?php $thumb_img = get_post( get_post_thumbnail_id() );
                                                             $thumb_caption = $thumb_img->post_excerpt;
                                                             $thumb_title = $thumb_img->post_title;
                                                         if ($thumb_caption) : ?>
-                                                            <?= "<p class='wp-caption-text'>$thumb_caption</p>" ?>
+                                                            <?php echo "<p class='wp-caption-text'>$thumb_caption</p>" ?>
                                                         <?php else : ?>
-                                                            <?= "<p class='wp-caption-text'>$thumb_title</p>" ?>
+                                                            <?php echo "<p class='wp-caption-text'>$thumb_title</p>" ?>
                                                         <?php endif; ?>
                                                 </div>
                                             </div>
@@ -222,7 +223,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-1.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -252,7 +253,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-2.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -277,7 +278,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-3.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -302,7 +303,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-4.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
