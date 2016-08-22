@@ -10,9 +10,9 @@ get_header();
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'single-post-thumbnail');
     $childimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->post_parent), 'single-post-thumbnail');
     if (has_post_thumbnail($page_id)) {
-        echo make_path_relative($image[0]);
+        echo str_replace(site_url(),'',$image[0]);
     } elseif (is_page($page_id)) {
-        echo make_path_relative($childimage[0]);
+        echo str_replace(site_url(),'',$childimage[0]);
     }
     ?>')">
         <?php get_template_part('breadcrumb'); ?>
@@ -62,7 +62,6 @@ get_header();
                         <?php $featbox_editor = get_post_meta($post->ID, 'featbox_editor', true);
                         $video = get_post_meta($post->ID, 'video_metabox', true);
                         $video_filter = apply_filters('the_content', $video);
-                        //apply_filters('the_content',$child_video);
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
                             <div class="editor-container <?= $featbox_color; ?>">
@@ -148,11 +147,14 @@ get_header();
                                                     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
                                                     $thumb_url = $thumb_url_array[0];
                                                     ?>
-                                                    <img src="<?= make_path_relative($thumb_url) ?>"
+                                                    <img src="<?= str_replace(site_url(),'',make_path_relative($thumb_url)) //echo str_replace(site_url(),'',$image[0]);?>"
                                                          alt="<?php the_title(); ?>" class="img-responsive">
                                                     <?php $thumb_img = get_post( get_post_thumbnail_id() );
+                                                            $thumb_caption = $thumb_img->post_excerpt;
                                                             $thumb_title = $thumb_img->post_title;
-                                                        if ($thumb_title) : ?>
+                                                        if ($thumb_caption) : ?>
+                                                            <?= "<p class='wp-caption-text'>$thumb_caption</p>" ?>
+                                                        <?php else : ?>
                                                             <?= "<p class='wp-caption-text'>$thumb_title</p>" ?>
                                                         <?php endif; ?>
                                                 </div>
@@ -220,7 +222,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
+                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -250,7 +252,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
+                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -275,7 +277,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
+                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -300,7 +302,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
+                                            src="<?= str_replace(site_url(),'',make_path_relative(get_stylesheet_directory_uri())); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
