@@ -86,9 +86,6 @@ get_header();
                                 <iframe src="https://r1.dotmailer-surveys.com/b2mand7-0d1xfr61" frameborder="0"
                                         scrolling="no"></iframe>
                             <?php endif; ?>
-                            <?php if (in_category('case-study') && $post->post_parent == $pageID) : ?>
-                                <h2>Case studies</h2>
-                            <?php endif; ?>
                         <?php endwhile; endif; ?>
                     </div>
                 </div>
