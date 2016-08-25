@@ -50,14 +50,7 @@ h2.super-heading {
 }
 
 section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
-    font-size: 1.6em;
-    font-family: "Bitter", "Open Sans", arial, serif;
-    font-weight: 400;
-    z-index: 2;
-    letter-spacing: -.025em;
-    line-height: 1.3em;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 1em;
 }
 
 .tna-breadcrumb {
@@ -311,19 +304,6 @@ li.active h3 {
 
 .tab-pane>.col-md-6>.video-container {
     margin-top: 0;
-}
-
-.tab-pane>.col-md-8>p>strong, .tab-pane>.col-md-8>p>span>strong, .tab-pane>.col-md-6>p>strong, .tab-pane>.col-md-6>p>span>strong {
-    font-size: 1.8em;
-    font-weight: 700;
-    clear: right;
-    color: #009999;
-    line-height: 1.1em;
-}
-
-.tab-pane>.col-md-12>p:first-of-type, .tab-pane>.col-md-6>p:first-of-type {
-    color: #009999;
-    font-size: 1.2em;
 }
 
 .tab-pane>.col-md-12>ul, .tab-pane>.col-md-6>ul {

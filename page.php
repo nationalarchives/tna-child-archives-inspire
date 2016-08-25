@@ -20,10 +20,10 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="super-heading"><?= get_the_title(); ?></h1>
+                        <h1 class="super-heading"><?php echo get_the_title(); ?></h1>
                         <?php $sub_heading = get_post_meta($page_id, 'sub_heading_sub_heading', true);
                         if ($sub_heading) : ?>
-                            <h2 class="super-heading"><?= $sub_heading; ?></h2>
+                            <h2 class="super-heading"><?php echo $sub_heading; ?></h2>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ get_header();
                             <ul class="list-inline">
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                     <li>
-                                        <a href="<?= make_path_relative(get_page_link()); ?>"
+                                        <a href="<?php echo make_path_relative(get_page_link()); ?>"
                                                title="<?php the_title_attribute(); ?>"
                                                rel="bookmark"><?php the_title(); ?>
                                         </a>
@@ -65,16 +65,16 @@ get_header();
                         //apply_filters('the_content',$child_video);
                         $featbox_color = get_post_meta($post->ID, 'featbox_select', true);
                         if ($featbox_editor) : ?>
-                            <div class="editor-container <?= $featbox_color; ?>">
-                                <?= make_path_relative(wpautop($featbox_editor)); ?>
+                            <div class="editor-container <?php echo $featbox_color; ?>">
+                                <?php echo make_path_relative(wpautop($featbox_editor)); ?>
                             </div>
                         <?php elseif ($video) : ?>
                             <div class="video-container">
-                                <?= $video_filter; ?>
+                                <?php echo $video_filter; ?>
                             </div>
                         <?php elseif (!empty($featbox_editor) && !empty($video)) : ?>
-                            <div class="editor_container <?= $featbox_color; ?>">
-                                <?= wpautop($featbox_editor); ?>
+                            <div class="editor_container <?php echo $featbox_color; ?>">
+                                <?php echo wpautop($featbox_editor); ?>
                             </div>
                         <?php endif;
                         wp_reset_query(); ?>
@@ -105,9 +105,9 @@ get_header();
                     <ul class="nav nav-pills">
                         <?php $active = false; ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li class="<?= !$active ? "active" : ""; ?>" role="tab">
+                            <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
                                 <a class="stop"
-                                   href="#<?= sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
+                                   href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
                                    data-toggle="tab"><h3><?php the_title(); ?></h3></a>
                             </li>
                             <?php $active = true; ?>
@@ -130,8 +130,8 @@ get_header();
                             <div class="tab-content ">
                                 <?php $active = false; ?>
                                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <div class="tab-pane <?= !$active ? "active" : ""; ?>"
-                                         id="<?= sanitize_title_with_dashes(strtolower(get_the_title())); ?>">
+                                    <div class="tab-pane <?php echo !$active ? "active" : ""; ?>"
+                                         id="<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>">
                                         <div class="col-md-12 pr-only">
                                             <h3><?php the_title(); ?></h3>
                                             <hr>
@@ -148,12 +148,15 @@ get_header();
                                                     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
                                                     $thumb_url = $thumb_url_array[0];
                                                     ?>
-                                                    <img src="<?= make_path_relative($thumb_url) ?>"
+                                                    <img src="<?php echo make_path_relative($thumb_url) ?>"
                                                          alt="<?php the_title(); ?>" class="img-responsive">
                                                     <?php $thumb_img = get_post( get_post_thumbnail_id() );
+                                                            $thumb_caption = $thumb_img->post_excerpt;
                                                             $thumb_title = $thumb_img->post_title;
-                                                        if ($thumb_title) : ?>
-                                                            <?= "<p class='wp-caption-text'>$thumb_title</p>" ?>
+                                                        if ($thumb_caption) : ?>
+                                                            <?php echo "<p class='wp-caption-text'>$thumb_caption</p>" ?>
+                                                        <?php else : ?>
+                                                            <?php echo "<p class='wp-caption-text'>$thumb_title</p>" ?>
                                                         <?php endif; ?>
                                                 </div>
                                             </div>
@@ -220,7 +223,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -250,7 +253,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -275,7 +278,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -300,7 +303,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?= make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
+                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
