@@ -16,6 +16,7 @@ main {
     background-color: #fff;
 }
 
+
 .super-heading {
     color: #fff;
     background-color: #008484;
@@ -138,7 +139,7 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 
 .banner {
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     min-height: 25.587em;
 }
 
