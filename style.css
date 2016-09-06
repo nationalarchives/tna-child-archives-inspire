@@ -24,7 +24,7 @@ main {
     display: table;
     padding:0 15px;
     margin-top: 25px;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 #breadcrumb-holder a {
@@ -59,23 +59,24 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 
 .editor-container {
     position: relative;
-    padding: 15px 20px;
+    padding: 30px;
     margin-top: 1em;
     height: auto;
 }
 
 .editor-container>p:first-of-type{
-    margin-bottom: 1em;
+    /*margin-bottom: 1em;*/
     font-family: "Bitter", "Open Sans", arial, serif;
     font-size: 1.6em;
 }
 
 .editor-container>p:last-of-type{
-    margin-bottom: 1em;
+    margin-bottom: 0em;
 }
 
+
 .editor-container>p{
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 .editor-container>p>a {
     background: #008484;
