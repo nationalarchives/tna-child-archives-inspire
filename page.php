@@ -10,9 +10,9 @@ get_header();
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'single-post-thumbnail');
     $childimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->post_parent), 'single-post-thumbnail');
     if (has_post_thumbnail($page_id)) {
-        echo make_path_relative($image[0]);
+        echo make_path_relative_no_pre_path($image[0]);
     } elseif (is_page($page_id)) {
-        echo make_path_relative($childimage[0]);
+        echo make_path_relative_no_pre_path($childimage[0]);
     }
     ?>')">
         <?php get_template_part('breadcrumb'); ?>
@@ -145,7 +145,7 @@ get_header();
                                                     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
                                                     $thumb_url = $thumb_url_array[0];
                                                     ?>
-                                                    <img src="<?php echo make_path_relative($thumb_url) ?>"
+                                                    <img src="<?php echo make_path_relative_no_pre_path($thumb_url) ?>"
                                                          alt="<?php the_title(); ?>" class="img-responsive">
                                                     <?php $thumb_img = get_post( get_post_thumbnail_id() );
                                                             $thumb_caption = $thumb_img->post_excerpt;
@@ -220,7 +220,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
+                                            src="<?php echo make_path_relative_no_pre_path(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-1.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
+                                            src="<?php echo make_path_relative_no_pre_path(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-2.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
+                                            src="<?php echo make_path_relative_no_pre_path(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-3.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
@@ -300,7 +300,7 @@ get_header();
                                     </div>
                                     <div class="col-md-6">
                                         <img
-                                            src="<?php echo make_path_relative(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
+                                            src="<?php echo make_path_relative_no_pre_path(get_stylesheet_directory_uri()); ?>/img/archives-inspire-screenshot-4.png"
                                             alt="screenshot-1" class="img-responsive full-width">
                                     </div>
                                 </div>
