@@ -9,13 +9,13 @@ function tnatheme_globals() {
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
         $pre_path = '/archives-inspire';
         $pre_crumbs = array(
-            'Archives inspire' => '/'
+            'Archives Inspire' => '/'
         );
     // If external TNA
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'Archives inspire' => '/about/archives-inspire/',
+            'Archives Inspire' => '/about/archives-inspire/',
         );
 
         $pre_path = '/about/archives-inspire';
@@ -27,7 +27,7 @@ if ( $_SERVER['SERVER_ADDR'] !== $_SERVER['REMOTE_ADDR'] ) {
     } else {
         $pre_path = '';
         $pre_crumbs = array(
-            'Archives inspire' => '/'
+            'Archives Inspire' => '/'
         );
 }
 
