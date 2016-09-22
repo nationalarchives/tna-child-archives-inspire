@@ -137,7 +137,7 @@ function featbox_meta_callback( $post ) {
             'textarea_rows' => 10,
             'media_buttons' => false,
             'dfw' => true,
-            'quicktags'     => false
+            'quicktags'     => true
 
         );
         wp_editor( $content, $editor, $settings); ?>
