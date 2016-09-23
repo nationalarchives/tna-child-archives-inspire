@@ -7,18 +7,18 @@ function tnatheme_globals() {
     global $pre_crumbs;
     // If internal TNA
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
-        $pre_path = '/archives-inspire';
+        $pre_path = '/international-collaboration';
         $pre_crumbs = array(
-            'Archives Inspire' => '/'
+            'International Collaboration' => '/'
         );
     // If external TNA
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'Archives Inspire' => '/about/archives-inspire/',
+            'International Collaboration' => '/about/international-collaboration/',
         );
 
-        $pre_path = '/about/archives-inspire';
+        $pre_path = '/about/international-collaboration';
     }
 }
 // If web development machine
@@ -27,7 +27,7 @@ if ( $_SERVER['SERVER_ADDR'] !== $_SERVER['REMOTE_ADDR'] ) {
     } else {
         $pre_path = '';
         $pre_crumbs = array(
-            'Archives Inspire' => '/'
+            'International Collaboration' => '/'
         );
 }
 
@@ -137,7 +137,7 @@ function featbox_meta_callback( $post ) {
             'textarea_rows' => 10,
             'media_buttons' => false,
             'dfw' => true,
-            'quicktags'     => false
+            'quicktags'     => true
 
         );
         wp_editor( $content, $editor, $settings); ?>
