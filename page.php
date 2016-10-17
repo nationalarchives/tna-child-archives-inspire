@@ -103,9 +103,9 @@ get_header();
                         <?php $active = false; ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <li class="<?php echo !$active ? "active" : ""; ?>" role="tab">
-                                <a class="stop"
-                                   href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>"
-                                   data-toggle="tab"><h3><?php the_title(); ?></h3></a>
+                                <a class="stop" href="#<?php echo sanitize_title_with_dashes(strtolower(get_the_title())); ?>" data-toggle="tab">
+                                    <h3><?php the_title(); ?></h3>
+                                </a>
                             </li>
                             <?php $active = true; ?>
                         <?php endwhile; ?>
@@ -116,7 +116,7 @@ get_header();
         wp_reset_query(); ?>
         <?php
         $page_id = $post->ID;
-        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'orderby' => 'menu_order', 'order' => 'ASC');
+        $args = array('post_type' => 'page', 'post_parent' => $page_id, 'orderby' => 'menu_order', 'order' => 'ASC', 'category_name'=>'case-study');
         $the_query = new WP_Query($args);
         if ($the_query->have_posts()) : ?>
             <section class="a-i-tabs"><!--Tabs sections-->
