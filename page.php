@@ -5,7 +5,7 @@ Template Name: Archives inspire
 get_header();
 ?>
 <div class="a-i">
-    <div class="banner" role="banner" style="background-image: url('<?php
+    <div class="banner feature-img" role="banner" style="background-image: url('<?php
     $page_id = $post->ID;
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'single-post-thumbnail');
     $childimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->post_parent), 'single-post-thumbnail');
@@ -20,6 +20,7 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php get_image_caption('top'); ?>
                         <h1 class="super-heading"><?php echo get_the_title(); ?></h1>
                         <?php $sub_heading = get_post_meta($page_id, 'sub_heading_sub_heading', true);
                         if ($sub_heading) : ?>

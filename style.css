@@ -139,8 +139,12 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 
 .banner {
     background-size: cover;
-    background-position: top center;
+    background-position: center;
     min-height: 25.587em;
+}
+
+.feature-img .img-caption-top {
+    top: -4em;
 }
 
 .brochure {
@@ -725,6 +729,12 @@ a.right.carousel-control {
     }
     .nav-pills>li.active>a, .nav-pills>li.active>a:focus {
         border-top: hidden;
+    }
+}
+
+@media (max-width: 650px) {
+    .feature-img .img-caption-top {
+        top: -6.5em;
     }
 }
 
