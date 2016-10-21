@@ -7,18 +7,18 @@ function tnatheme_globals() {
     global $pre_crumbs;
     // If internal TNA
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
-        $pre_path = '/international-collaboration';
+        $pre_path = '/archives-inspire-the-world';
         $pre_crumbs = array(
-            'International Collaboration' => '/'
+            'Archives Inspire the world' => '/'
         );
     // If external TNA
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'International Collaboration' => '/about/international-collaboration/',
+            'Archives Inspire the world' => '/about/archives-inspire-the-world/',
         );
 
-        $pre_path = '/about/international-collaboration';
+        $pre_path = '/about/archives-inspire-the-world';
     }
 }
 // If web development machine
@@ -27,7 +27,7 @@ if ( $_SERVER['SERVER_ADDR'] !== $_SERVER['REMOTE_ADDR'] ) {
     } else {
         $pre_path = '';
         $pre_crumbs = array(
-            'International Collaboration' => '/'
+            'Archives Inspire the world' => '/'
         );
 }
 

@@ -145,8 +145,10 @@ get_header();
                                                     $thumb_id = get_post_thumbnail_id();
                                                     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
                                                     $thumb_url = $thumb_url_array[0];
-                                                    ?>
-                                                    <a href="<?php the_post_thumbnail_url(); ?>" title="<?php the_title_attribute(); ?>">
+                                                    $thumb_img = get_post( get_post_thumbnail_id() );
+                                                    $thumb_caption = $thumb_img->post_excerpt;
+                                                    $thumb_title = $thumb_img->post_title; ?>
+                                                    <a href="<?php the_post_thumbnail_url(); ?>" title="<?php echo $thumb_title; ?>">
                                                         <img src="<?php echo make_path_relative_no_pre_path($thumb_url) ?>"
                                                              alt="<?php the_title(); ?>" class="img-responsive">
                                                     </a>
