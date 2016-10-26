@@ -15,10 +15,10 @@ function tnatheme_globals() {
     } else {
         $pre_crumbs = array(
             'About' => '/about/',
-            'Archives Inspire the world' => '/about/archives-inspire-the-world/',
+            'Archives Inspire the world' => '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire-the-world/',
         );
 
-        $pre_path = '/about/archives-inspire-the-world';
+        $pre_path = '/about/our-role/plans-policies-performance-and-projects/our-plans/archives-inspire-the-world/';
     }
 }
 // If web development machine
