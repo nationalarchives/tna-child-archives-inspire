@@ -18,14 +18,16 @@ main {
 
 
 .super-heading {
-    color: #fff;
-    background-color: #008484;
+    color: #26262a;
     font-size: 3.3em;
     box-sizing: border-box;
     display: table;
-    padding:0 15px;
     margin-top: 25px;
     text-transform: none;
+    background-color: #fff;
+    border: 2px solid #26262a;
+    padding: 7px 22px;
+    margin-bottom: 1em;
 }
 
 #breadcrumb-holder a {
@@ -43,6 +45,11 @@ h2.super-heading {
 
 .parent_section ul:first-of-type {
     margin-top: 20px;
+}
+
+.parent_section h2 {
+    border-top: 2px solid #26262a;
+    padding-top: 0.6em;
 }
 
 .parent_section iframe {
@@ -79,12 +86,6 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 
 .editor-container>p{
     margin-bottom: 1em;
-}
-.editor-container>p>a {
-    background: #008484;
-    color: #fff;
-    padding: .5em;
-    min-width: 24px;
 }
 
 .editor-container>p>a:hover {
