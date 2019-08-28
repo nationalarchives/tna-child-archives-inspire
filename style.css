@@ -16,7 +16,6 @@ main {
     background-color: #fff;
 }
 
-
 .super-heading {
     color: #26262a;
     font-size: 3.3em;
@@ -86,12 +85,6 @@ section:first-of-type>div.row>div.col-md-pull-4>p:first-of-type {
 
 .editor-container>p{
     margin-bottom: 1em;
-}
-
-.editor-container>p>a:hover {
-    background: #FCE45C;
-    color: #000;
-    border: none;
 }
 
 .lightest-grey {
